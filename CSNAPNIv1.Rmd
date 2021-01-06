@@ -148,12 +148,6 @@ source("ModelSubs/NPinputs_aggregate.R")
 source("ModelSubs/write_outputs.R")
 ```
 
-
-```{r}
-#source("CSNAPNIv1.R")
-```
-
-
 ```{r include = FALSE}
 source("FigureSubs/fig_setup.r") #year_labels will need to be changed if there is a change in the years offered
 ```
