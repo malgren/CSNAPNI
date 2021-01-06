@@ -2,9 +2,6 @@
 ## This file generates input files needed to run NANI and NAPI by loading and formatting data from various sources.
 ## All the source files are in the "Raw Data" folder.
 
-#set working directory
-setwd("~/Documents/Mines/N_P/NANI_NAPI/CSNAPNIv1")
-
 # Start the clock!
 ptm <- proc.time()
 
@@ -53,20 +50,20 @@ source("CreateInputsSubs/NANItotals_vbmodel.r") # *used data from 2012 for 2017,
 source("CreateInputsSubs/NAPItotals_vbmodel.r") # *used data from 2012 for 2017
 
 #####################################################################################
-##Meat production and emissions data (from 2015 MATLAB NANI)
-source("CreateInputsSubs/meat_data.r") #
+##Meat production and emissions data (from original commodity-specific NANI for 2002)
+source("CreateInputsSubs/meat_data.r")
 #add Mtrade data
 
 #####################################################################################
 ##Ethanol production data (from USDA ERS)
-source("CreateInputsSubs/etoh_data.r") # *
+source("CreateInputsSubs/etoh_data.r")
 
 #####################################################################################
 ##Crop fertilization rate data (from USDA ERS and NASS, and MN extension recommendations)
-source("CreateInputsSubs/fertrates_data.r") #
+source("CreateInputsSubs/fertrates_data.r")
 
 #####################################################################################
-##Food waste data (from )
+##Food waste data (from original commodity-specific NANI for 2002)
 #source("foodwaste_data.r") # *
 #still needs to be scripted for years other than 02 and 07
 
