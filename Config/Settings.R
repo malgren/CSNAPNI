@@ -28,6 +28,9 @@ nyrs = length(run_yrs)
 print(paste("Running for the following year(s): "), quote=FALSE)
 print(paste(run_yrs), quote=FALSE)
 
-
+ws_name = "Miss_Atch"
+ws = c(22,25) ##Missippi River and Atchafalaya Watersheds
+#ws = c(52:60) ##Chesapeake Bay Watersheds (Patuxent,Potomac,Rappahannock,
+#York,James,Chester,Choptank,Tangier/Pokomoke,Chesapeake Bay Mainstream)
 
                       

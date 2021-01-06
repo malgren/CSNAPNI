@@ -38,10 +38,14 @@ The model includes crop and animal production data for 3111 counties (or statist
 ### Settings {#settings}
 Use `Config/Settings.R` to specify:
 
-* whether new input files should be generated from the original data sources (this should not be necessary unless this is the first time you are running the model, or the raw data sources have been updated since the last time input files were generated)
+* whether new input files should be generated from the original data sources
+    * this should not be necessary unless this is the first time you are running the model, or the raw data sources have been updated since the last time input files were generated)
 * which allocation method to use for ethanol and ethanol coproducts
 * which meat protein content assumptions to use (Costello's or DeVries')
 * which data years should be included in model outputs
+* which watersheds should be highlighted in the output
+    * the default NEEA watersheds highlighted are the Mississippi and Atchafalaya watersheds
+    * Note: outputs for the conterminous US are always generated
 
 The default settings are shown in the output below.
 ```{r include = TRUE}

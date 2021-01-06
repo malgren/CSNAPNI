@@ -51,11 +51,6 @@ NAPIorigtot_US = array(0,c(length(NAPIorigtot[1,,1]),nyrs))
 NANI_wsspec = array(0,c(length(NANIBtot[1,,1]),nyrs))
 NAPI_wsspec = array(0,c(length(NAPIBtot[1,,1]),nyrs))
 
-ws_name = "Miss_Atch"
-ws = c(22,25) ##Missippi River and Atchafalaya Watersheds
-#ws = c(52:60) ##Chesapeake Bay Watersheds (Patuxent,Potomac,Rappahannock,
-                #York,James,Chester,Choptank,Tangier/Pokomoke,Chesapeake Bay Mainstream)
-
 for(n in 1:nyrs){
   NANIBtot_US[,n] = colSums(NANIBtot[,,n])/(10^9)
   NANIorigtot_US[,n] = colSums(NANIorigtot[,,n])/(10^9)
