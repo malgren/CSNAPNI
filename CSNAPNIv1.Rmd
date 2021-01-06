@@ -136,7 +136,13 @@ source("ModelSubs/NPinputs_aggregate.R")
 ```
 
 ### Write model outputs {#writeoutputs}
-`ModelSubs/write_outputs.R`
+`ModelSubs/write_outputs.R` writes text files for 
+* total fertilizer N and P and fixation N inputs
+  * by commodity (crop, ethanol, and meat products)
+  * by watershed
+* manure N and P production by meat type
+* atmospheric N dep by watershed
+
 ```{r include = TRUE}
 ## WRITE OUTPUT DATA TO TEXT FILES
 source("ModelSubs/write_outputs.R")
