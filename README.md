@@ -5,6 +5,7 @@ in addition to total nutrient inputs at the county and watershed scale for the c
 To run the model, download the repository, then open Config/Settings.R.
 
 In Config/Settings.R, ensure that the variable "get_new_data" is set to 1. This will prompt model input files to be generated from raw data on the first run.
+After the first model run, "get_new_data" can be set to 0 and the model will run faster.
 
 Open CSNAPNIv1.R or CSNAPNIv1.Rmd in R Studio.
 
