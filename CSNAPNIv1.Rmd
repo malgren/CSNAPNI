@@ -23,6 +23,7 @@ The model includes crop and animal production data for 3111 counties (or statist
 ## Model Tutorial (add TOC and internal links to headings)
 
 * [Settings](#settings)
+* [Create Inputs](#createinputs)
 * [Load data](#load)
 * [Recoverable manure](#manure)
 * [Translate county-level data into watershed-level data](#cnty-ws)
@@ -37,7 +38,7 @@ The model includes crop and animal production data for 3111 counties (or statist
 ### Settings {#settings}
 Use `Config/Settings.R` to specify:
 
-* whether new input files should be generated from the original data sources (this should not be necessary unless input files are missing or the original data source have been updated)
+* whether new input files should be generated from the original data sources (this should not be necessary unless this is the first time you are running the model, or the raw data sources have been updated since the last time input files were generated)
 * which allocation method to use for ethanol and ethanol coproducts
 * which meat protein content assumptions to use (Costello's or DeVries')
 * which data years should be included in model outputs
@@ -47,9 +48,16 @@ The default settings are shown in the output below.
 source("Config/Settings.R")
 ```
 
+### Create Inputs {#createinputs}
+`ModelSubs/CreateInputs.R` generates the input files needed to run CSNAPNI. As stated above, this should only be necessary unless this is the first time you are running the model, or the raw data sources have been updated since the last time input files were generated.
+```{r include = TRUE}
+if(get_new_data==1){
+  source("ModelSubs/CreateInputs.R")
+}
+```
+
 ### Load Data {#load}
 `ModelSubs/LoadData.R` is the program responsible for loading the data from the `InputFiles` folder into the R environment.
-The input datasets for the model are listed in Table 1.
 ```{r include = TRUE}
 source("ModelSubs/LoadData.R")
 ```
