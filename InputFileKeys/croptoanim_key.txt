@@ -1,0 +1,20 @@
+  corn for grain corn for silage wheat oats barley sorghum for grain sorghum for silage potatoes rye alfalfa hay other hay soybeans cropland pasture noncropland pasture rice peanuts CGF CGM DGS
+fattened cattle                                      
+milk cows                                      
+hogs for breeding                                      
+hogs for slaughter                                      
+chicken layers                                      
+breeding turkeys                                      
+chicken pullets                                      
+chicken broilers                                      
+slaughter turkeys                                      
+beef breeding herd                                      
+beef calves                                      
+dairy calves                                      
+beef heifers                                      
+dairy heifers                                      
+beef stockers                                      
+dairy stockers                                      
+sheep                                      
+horses                                      
+goats                                      

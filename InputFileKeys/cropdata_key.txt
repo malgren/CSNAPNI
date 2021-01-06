@@ -1,0 +1,20 @@
+,123	[1] prop_dm	[2] N/dm	[3] P/dm	[4] prop_human	[5] prop_anim	[6] prop_human_loss	[7] prop_anim_loss	[8] kcal/kg crop	[9] g prot/kg crop	[10] grain?	[11] waste_1	[12] waste_2	[13] waste_3	"[14] N20 CO2eq/kg crop, 100yrGWP"	"[15] CH4 CO2eq/kg crop, 100yrGWP"	"[16] N20 CO2eq/kg crop, 20yrGWP"	"[17] CH4 CO2eq/kg crop, 20yrGWP"	[18] m2 planted/kg
+corn for grain																		
+corn for silage																		
+wheat																		
+oats																		
+barley																		
+sorghum for grain																		
+sorghum for silage																		
+potatoes																		
+rye																		
+alfalfa hay																		
+other hay																		
+soybeans																		
+cropland pasture																		
+noncropland pasture																		
+rice																		
+peanuts																		
+CGF																		
+CGM																		
+DGS																		

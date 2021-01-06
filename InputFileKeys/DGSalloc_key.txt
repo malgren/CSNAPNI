@@ -1,0 +1,20 @@
+	1987	1992	1997	2002	2007	2012
+fattened cattle						
+milk cows						
+hogs for breeding						
+hogs for slaughter						
+chicken layers						
+breeding turkeys						
+chicken pullets						
+chicken broilers						
+slaughter turkeys						
+beef breeding herd						
+beef calves						
+dairy calves						
+beef heifers						
+dairy heifers						
+beef stockers						
+dairy stockers						
+sheep						
+horses						
+goats						

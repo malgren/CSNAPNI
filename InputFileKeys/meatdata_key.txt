@@ -1,0 +1,21 @@
+	Proportion Loss in Human Consumption	Product Weight (kg/animal)	Edible Portion (kg edible/kg animal)	N in Edible Portion (kg N/kg edible)	P in Edible Portion (kg P/kg edible)	P in Edible Portion de Vries (kg P/kg edible)	kcal/kg edible portion	g protein/kg edible portion	g protein/kg edible portion de Vries								
+beef																	
+dairy																	
+pigs/hogs																	
+sheep																	
+horse																	
+layers																	
+broilers																	
+turkey																	
+goats																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	

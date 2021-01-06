@@ -1,0 +1,20 @@
+	[1] N requirement (kg/year/animal)	[2] P requirement (kg/year/animal)	[3] prop N from grain	[4] prop N from forage	[5] prop P from grain	[6] prop P from forage
+fattened cattle						
+milk cows						
+hogs for breeding						
+hogs for slaughter						
+chicken layers						
+breeding turkeys						
+chicken pullets						
+chicken broilers						
+slaughter turkeys						
+beef breeding herd						
+beef calves						
+dairy calves						
+beef heifers						
+dairy heifers						
+beef stockers						
+dairy stockers						
+sheep						
+horses						
+goats						

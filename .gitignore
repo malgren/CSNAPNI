@@ -5,7 +5,5 @@
 
 #Generated files
 CreateInputsSubs/NASSpull/RawNASSData/*
-InputFileKeys/*.txt
-InputFiles/*.txt
 OutputFileKeys/*.txt
 OutputFiles/*.txt
