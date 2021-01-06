@@ -49,7 +49,7 @@ source("Config/Settings.R")
 ```
 
 ### Create Inputs {#createinputs}
-`ModelSubs/CreateInputs.R` generates the input files needed to run CSNAPNI. As stated above, this should only be necessary unless this is the first time you are running the model, or the raw data sources have been updated since the last time input files were generated.
+`ModelSubs/CreateInputs.R` generates the input files needed to run CSNAPNI. As stated above, running this should only be necessary unless this is the first time you are running the model, or the raw data sources have been updated since the last time input files were generated. If you want to run `CreateInputs.R`, open the [Settings](#settings) file and make sure get_new_data==1.
 ```{r include = TRUE}
 if(get_new_data==1){
   source("ModelSubs/CreateInputs.R")
@@ -70,7 +70,7 @@ source("ModelSubs/manure.R")
 ```
 
 ### Translate county-level data into watershed-level data {#cnty-ws}
-`ModelSubs/NEEAshedsdyn.R` first determines intersections of county-level data with 450 watersheds in the conterminous US. Then it sorts crop, animal, and manure production, NANI and NAPI data, human populations, and areas into watersheds corresponding to National Estuarine Eutrophication Assessment (NEEA) watersheds (Sources: *Bricker, SB, JG Ferreira and T Simas. 2003. An integrated methodology for assessment of estuarine trophic status. Ecological Modeling. 169:39-60.* and http://ian.umces.edu/neea/).
+`ModelSubs/NEEAshedsdyn.R` first determines intersections of county-level data with 450 watersheds in the conterminous US. Then it sorts crop, animal, and manure production, NANI and NAPI data, human populations, and areas corresponding to the 450 watersheds into the 144 National Estuarine Eutrophication Assessment (NEEA) watersheds (Sources: *Bricker, SB, JG Ferreira and T Simas. 2003. An integrated methodology for assessment of estuarine trophic status. Ecological Modeling. 169:39-60.* and http://ian.umces.edu/neea/).
 ```{r include = TRUE}
 #Determine intersections of county-level data with 450 watersheds in the conterminous US
 #Sort watershed-level crop, animal, manure production, NANI and NAPI toolbox, human population, and area datasets 

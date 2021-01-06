@@ -13,7 +13,7 @@ if (get_new_data == 1){
 source("ModelSubs/LoadData.R")
 
 ##Calculate recoverable manure for NANI/NAPI Toolbox Watersheds
-source("ModelSubs/animdyn.R")
+source("ModelSubs/manure.R")
 
 ##Sort crop, animal, and manure production, NANI and NAPI data, human populations, and areas into NEEA watersheds
 source("ModelSubs/NEEAshedsdyn.R")
