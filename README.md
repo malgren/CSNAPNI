@@ -1,5 +1,5 @@
 # CSNAPNI
-The CSNANPI model is designed to estimate nutrient inputs (real and embodied) to specific products, including crops, corn ethanol, and animal products, 
+The CSNAPNI model is designed to estimate nutrient inputs (real and embodied) to specific products, including crops, corn ethanol, and animal products, 
 in addition to total nutrient inputs at the county and watershed scale for the conterminous United States (US).
 
 To run the model, download the repository, then open Config/Settings.R.
