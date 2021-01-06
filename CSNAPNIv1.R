@@ -1,8 +1,5 @@
 #CSNAPNIv1.R
 
-#set working directory
-setwd("~/Documents/Mines/N_P/NANI_NAPI/CSNAPNIv1")
-
 #settings
 source("Config/Settings.R")
 

@@ -1,6 +1,9 @@
 # Settings.R
 ## This file contains all user-adjustable input parameters for CSNAPNI.
 
+#set working directory
+setwd("~/Documents/Mines/N_P/NANI_NAPI/CSNAPNIv1")
+
 #Regenerate input files? 0=no, 1=yes
 get_new_data=0
 print(paste("Input files regenerated (0=no, 1=yes): ", get_new_data),quote=FALSE)
