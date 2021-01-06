@@ -9,8 +9,8 @@ After the first model run, "get_new_data" can be set to 0 and the model will run
 
 Open CSNAPNIv1.R or CSNAPNIv1.Rmd in R Studio.
 
-Use CSNAPNIv1.R to generate all output files quickly, and to enable model variables to be probed from within R.
+Run CSNAPNIv1.R to generate all output files quickly, and to enable model variables to be probed from within R.
 
-Use CSNAPNIv1.Rmd to walk through model functionality, inputs, and outputs. Click “Knit” to generate the HTML model guide.
+Knit CSNAPNIv1.Rmd to to generate the HTML model guide that will walk you through model functionality, inputs, and outputs.
 
 Some tabled outputs will be saved in the “OutputFiles” folder after the model is run.
