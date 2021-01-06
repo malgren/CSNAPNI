@@ -1,0 +1,65 @@
+ 
+Tables in this data product include:
+
+
+U.S. Acreage, Production, Yield, and Farm Price
+
+Table01.xls State and U.S. rice area planted, by class and all rice, 2006 to present
+Table02.xls U.S. and State average rice yields per harvested acre, 1960 to present
+Table03.xls U.S. rice acreage, yield, and production, 1959 to present
+Table04.xls State and U.S. rice production by class, 2004 to present
+Table05.xls State and U.S. rice acreage, yield, and production, all rice and by class, 2015 to present
+Table06.xls Proportional distribution of U.S. rice acreage by class, United States, 1965 to present 
+
+
+U.S. Supply, Disappearance, and Stocks
+
+Table07.xls U.S. rice production, supply, use, and season-average farm price, total rice and by class, 2010/11 to present
+Table08.xls Rough and milled rice (rough equivalent): Marketing year supply, disappearance, and price, 1970/71 to present
+Table09.xls Long grain rough and milled rice (rough equivalent): Marketing year supply, disappearance, and price, 
+1982/83 to present 
+Table10.xls Medium- and short-grain rough and milled rice (rough equivalent: Marketing year supply, disappearance, 
+and price, 1982/83 to present
+Table11.xls Rice stocks: rough and milled, 1983 to present 
+
+
+U.S. Rice Trade
+ 
+Table12.xls U.S. rice exports by type, 1977/78 to present 
+Table13.xls Top 10 U.S. rice export markets, 2008/09
+Table14.xls U.S. rice imports (quantity) by origin, market year, 2006/07 to present
+
+
+Domestic Rice Prices and Loan and Payment Rates
+
+Table15.xls Rough rice: Average price received by farmers by month and marketing year, 1998/99 to present
+Table16.xls Rough rice: Average price received by farmers by month and marketing year, by class, 2011/12 to present
+Table17.xls Milled rice: Average price, f.o.b. mills, at selected U.S. milling center, 1979/80
+Table18.xls Rice byproducts: Monthly average price, Southwest Louisiana, 1979/80
+Table19.xls Brewers' prices: Monthly average price for Arkansas brewers’ rice, 1974/75
+Table20.xls Prices and payment rates for rice, 1961 to present
+Table21.xls Class loan rates and differentials, 2003 to present
+Table22.xls Adjusted world market rice price, loan rate basis, 1987 to present
+
+
+World Supply, Utilization, and Trade
+
+Table23.xls World rice supply and utilization, 1960/61 to present, 
+Table24.xls World rice trade (milled basis): Exports and imports of selected countries or regions, 2003 to present
+
+
+Globe Rice Trading Prices
+
+Table25.xls Export prices for Thailand, 1985/86 to present
+Table26.xls Export prices Vietnam, 1997/98 to present
+Table27.xls Export prices India, 1997/98 to present
+Table28.xls Export prices Pakistan, 1997/98 to present
+
+
+
+
+
+                            END_OF_FILE
+
+
+

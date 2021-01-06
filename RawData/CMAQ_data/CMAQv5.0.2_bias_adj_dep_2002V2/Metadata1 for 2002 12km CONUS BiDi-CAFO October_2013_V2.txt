@@ -1,0 +1,58 @@
+
+Metadata for 2002 12km CONUS BiDi-CAFO run of October 2013_v2
+
+Abstract: CMAQ annual deposition files for 2002 with adjusted wet deposition for the continental US using 12km grids. The dataset is based on output from the Community Multiscale Air Quality modeling system (CMAQ) run using the bidirectional flux option for the 12-km grid size for the US, Canada, and Mexico.  There are separate files for deposition in units of kg/ha and meq/m^2.  The CMAQ output has been post-processed using R scripts to adjust the wet deposition for errors in the location and amount of precipitation and for regional biases in the TNO3 (HNO3 + NO3), NHx (NH4 + NH3), and sulfate wet deposition.  Model predicted values of dry deposition were not adjusted.  The wet deposition has been adjusted by PRISM precipitation and by a bias adjustment field.  The precipitation adjustment is based on increasing/decreasing the modeled wet deposition based on the bias in the modeled precipitation (bias=PRISM precipitation regridded to 12kmx12km CMAQ grid/modeled precipitation).  The bias field is based on regionally smoothing the bias at NADP sites by averaging the bias across all sites within 500km of a given monitor (bias = observed value/model value). These new averaged bias values at each NADP site are then kriged across space to all of the CMAQ grid cells to produce a smooth spatial map of a regional bias correction field for the CMAQ wet deposition predictions. (Note that since we are dealing with ratios, the averaging and kriging procedures are done on the log scale and then back-transformed.)  This bias adjustment was applied to the entire CONUS domain, including the West Coast.  The dry deposition is added, without adjustment, to the adjusted wet deposition to calculate total deposition. 
+
+Purpose: Provide annual adjusted CMAQ deposition fields for 2002, with a bi-directional NH3 formulation and a dynamic CAFO emissions profile for critical loads analyses and as input to other ecological models where the most accurate wet deposition fields are desired (via precipitation and bias adjustments). 
+
+Supplemental Information: 
+The Community Multiscale Air Quality (CMAQ) modeling system was run for the CONUS domain using a 12 km grid size and a Lambert Conformal projection assuming a spherical earth with radius 6370.0 km.  The following model options and inputs were used:
+* Chemical Transport Model version is CMAQ v5.0.2 with bi-directional NH3 air-surface exchange using Massad formulation, CB05TUCL  chemical mechanism, aero6  aerosol module
+* CMAQ v5.0.2 lightning NOx adjusted to lightning strike data
+* GeosCHEM v 9-01-02 model created boundary conditions with monthly median values from 2005 simulation using Geos5 meteorology
+* Economic Policy Integrated Climate (EPIC) chemical fertilizer application schedule that is year specific with chemical specification of form applied.
+* New confined animal feeding operations (CAFO) resistance and thermodynamics-based diurnal profile calculation for NH3 emissions
+* Biogenic Emissions Landuse Database, version 4 (BELD4) crop distributions in EPIC and CMAQ, and biogenic emissions.
+* Anthropogenic emissions are from the 2002af data set.  
+* Weather Research Forecast model, version 3.4 (WRF v3.4) meteorology simulated for 2002 with 2001 NLCD land cover data and using version2 four-dimensional data assimilation with no nudging in the planetary boundary layer and based on blended 3-hourly reanalysis fields (combination of 6-hour (Meteorological Assimilation Data Ingest System) MADIS data and intermediate North American Mesoscale Model (NAM) 3-hour forecast) organized into 12km NAM Data Assimilation System (NDAS) fields up to 50 hPa, 
+* WRF v3.4 with Kain-Fritsch Ma and Tan (2009) trigger; with NLCD woody wetlands land use category recognized (wetlands-100); with Pleim-Xiu land-surface model.
+* WRF post-processing to create inputs for CMAQ was done with the Meteorology-Chemistry Input Processor (MCIP) v4.1.3.  There are 35 vertical layers from the surface to the top of the free troposphere with layer 1 nominally 19m tall.  
+* October 2013 simulation date. 
+
+Use Constraints: None
+
+Contact Person: Donna Schwede (schwede.donna@epa.gov)  or Kristen Foley (foley.kristen@epa.gov) 
+
+Currentness: May 2011 bias adjustment procedure (current); August 2013 CMAQ5.0.2; January 2013 WRFv3.4 with 2001 NLCD; 
+
+Update Frequency:  Occasional 
+
+kg/ha units set
+AWD_OXN_T		=  Bias+Precip Adjusted Wet Deposition of Oxidized N (kg-N/ha) 
+AWD_REDN_T	=  Bias+Precip Adjusted Wet Deposition of Reduced N (kg-N/ha) 
+AWD_S_T		  =  Precip Adjusted Wet Deposition of Total Sulfur (kg-S/ha) 
+AWD_SS_S		=  Precip Adjusted Wet Deposition of Sea Salt Sulfur (kg-S/ha) 
+AWDEP_CL		=  Precip Adjusted Wet Deposition of chloride (kg-Cl/ha) 
+AWDEP_Na		=  Precip Adjusted Wet Deposition of sodium (kg-Na/ha)
+DD_OXN_T		=  Dry Deposition of Total Oxidized N (kg-N/ha)
+DD_REDN_T		=  Dry Deposition of Total Reduced N (kg-N/ha)
+DD_S_T		  =  Dry Deposition of Total Sulfur (kg-S/ha)
+DD_SS_S	  	=  Dry Deposition of Sea Salt Sulfur (kg-S/ha)
+DDEP_CL		  =  Dry Deposition of Chloride (kg-Cl/ha)
+DDEP_Na		  =  Dry Deposition of Sodium (kg-Na/ha)
+TD_OXN_T		=  Total Deposition of Total Oxidized N (kg-N/ha)
+TD_REDN_T		=  Total Deposition of Total Reduced N (kg-N/ha)
+TD_S_T		  =  Total Deposition of Total Sulfur (kg-S/ha)
+TD_SS_S		  =  Total Deposition of Sea Salt Sulfur (kg-S/ha)
+TDEP_CL		  = Total Deposition of Chloride (kg-Cl/ha)
+TDEP_Na		  = Total Deposition of Sodium (kg-Na/ha)
+TD_N			  = Total Deposition of Nitrogen (Oxidized + Reduced) (kg-N/ha)
+SIM_DATE		= October 2013
+
+
+File Names: 
+* precip_adj_bias_adj_500kmMW_V2_2002_CMAQv5.0.2_bidi_cafo_12km_CONUS_kg_ha_Oct2013sim.shp
+
+5/5/2017
+
+
