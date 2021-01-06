@@ -12,6 +12,6 @@ Open CSNAPNIv1.R or CSNAPNIv1.Rmd in R Studio.
 
 Run CSNAPNIv1.R to generate all output files quickly, and to enable model variables to be probed from within R.
 
-Knit CSNAPNIv1.Rmd to to generate the HTML model guide that will walk you through model functionality, inputs, and outputs.
+Knit CSNAPNIv1.Rmd to generate the HTML model guide that will walk you through model functionality, inputs, and outputs.
 
 Some tabled outputs will be saved in the “OutputFiles” folder after the model is run.
