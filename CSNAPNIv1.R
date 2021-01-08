@@ -1,6 +1,8 @@
 #CSNAPNIv1.R
 
-setwd("~/Documents/Mines/N_P/NANI_NAPI/CSNAPNIv1")
+#specify the working directory as the location of this file
+this.dir <- dirname(parent.frame(2)$ofile)
+setwd(this.dir)
 
 #settings
 source("Config/Settings.R")
