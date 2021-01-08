@@ -1,6 +1,6 @@
 #population_data.r
 #This script pulls interpolated county populations (3111 counties from the continental US) for 1987-2012 from the NANI Accounting Tool V3.1.0
-read_file = 'RawData/NANI_Accounting_Tool_V3.1.0.xlsm'
+read_file = 'RawData/NANI_Accounting_Tool_V3.1.0_People_Areas.xlsx'
 import_yrs = c(1997,2002,2007,2012,2017)  #data years to import
 read_sheet = 'People'
 data = as.matrix(read_excel(read_file, sheet = read_sheet))
