@@ -32,7 +32,8 @@ prop_P_to_phosphoric_acid = 0.95 #from USGS, 2002-2017 data says "more than 95%"
 fertilizer_exports = c(1.29,1.29,1.29,1.29,0.85)*10^9 #in kg P, using 2012 and 2017 data only
 phosphoric_acid_exports = c(0.2,0.2,0.2,0.2,0.13)*10^9 #in kg P, using 2012 and 2017 data only
 P_to_phosphoric_acid = US_P_inputs*prop_P_to_phosphoric_acid
-P_to_feed_supplements = P_to_phosphoric_acid-US_P_fertilizer_sales-fertilizer_exports-phosphoric_acid_exports
+P_waste = 0.10*P_to_phosphoric_acid
+P_to_feed_supplements = P_to_phosphoric_acid-US_P_fertilizer_sales-fertilizer_exports-phosphoric_acid_exports-P_waste
 
 prop_P_need_avail = P_to_feed_supplements/missingPtotal
 
@@ -52,7 +53,7 @@ missingPtotal_dig = colSums(missingPanimtotals_dig) # total missing P in each ye
 prop_digP_need_avail = P_to_feed_supplements/missingPtotal_dig
 
 for(i in 1:data_yrs){
-  Psupp_peranim[,i] = missingPperanim[,i]*prop_digP_need_avail[i]
+  Psupp_peranim[,i] = missingPperanim_dig[,i]*prop_digP_need_avail[i]
   Psupp_animtotals[,i] = Psupp_peranim[,i]*animpoptotal[,i]
 }
 Psupp_total = colSums(Psupp_animtotals)
