@@ -40,13 +40,12 @@ for(n in 1:nyrs){
     kganimNreqs[,j,n] = noanimwsdyn[,j,n] * animdatadyn[j,8] #in kg N/year
     kganimPreqs[,j,n] = noanimwsdyn[,j,n] * animdatadyn[j,9] #in kg P/year
     animN[,j,n] = kganimNreqs[,j,n] - kgmanureN[,j,n] # approx N in animal products using orig assumption
-    # this assumption doesn't work for P because P is prevalent outside of proteins (e.g., in teeth and bones)
-    # FIX THIS
+    # this assumption doesn't work for P because P is prevalent outside of proteins (e.g., in teeth and bones), and animN and animP are used in the FF calculation
     #animP[,j,n] = kganimPreqs[,j,n] - kgmanureP[,j,n] # approx P in animal bodies using orig assumption
     kganim[,j,n] = noanimwsdyn[,j,n] * animdatadyn[j,14] #kg of liveweight per animals assumed to be slaughtered per watershed
     kgmeat_old[,j,n] = kganim[,j,n] * animdatadyn[j,15] # kg animal * # edible = edible portion,compare to USDA meat production
     kgNmeat_old[,j,n] = kgmeat_old[,j,n] * animdatadyn[j,16] #not replicating this calculation for P
-    animP[,j,n] = kgmeat_old[,j,n] * animdatadyn[j,16]*1/16 # approx P in animal bodies using orig assumption
+    animP[,j,n] = kgmeat_old[,j,n] * animdatadyn[j,16]*1/16 # approx P in animal bodies
   }
   
   for(k in 1:n_crops){

@@ -68,13 +68,13 @@ for(n in 1:nyrs){
     # per animal product (function of fertilizer applied to crops), domestic
     fixNmeattot[i,,n] = fixNpermeat[i,,n] * totmeat[n,i]
     fertNperMkcal[i,,n] = (fertNpermeat[i,,n] / meatdata[i,7]) # kg N fert/kcal in 1 kg meat
-    fertNperMprot[i,,n] = (fertNpermeat[i,,n] / (meatdata[i,z] / 1000)) # kg N fert / g protein in 1 kg meat
+    fertNperMprot[i,,n] = (fertNpermeat[i,,n] / (meatdata[i,z] / 1000)) # kg N fert / kg protein in 1 kg meat
     fixNperMkcal[i,,n] = (fixNpermeat[i,,n] / meatdata[i,7]) # kg of N in N fixed per kcal in 1 kg meat
     fixNperMprot[i,,n] = (fixNpermeat[i,,n] / (meatdata[i,z] / 1000)) # kg of N in N fixed per kg protein
     
     fertPmeattot[i,,n] = fertPpermeat[i,,n] * totmeat[n,i] # total kg fertilizer by crop per animal product (function of fertilizer applied to crops), domestic
     fertPperMkcal[i,,n] = (fertPpermeat[i,,n] / meatdata[i,7]) # kg P fert/kcal in 1 kg meat
-    fertPperMprot[i,,n] = (fertPpermeat[i,,n] / (meatdata[i,z] / 1000)) # kg P fert / g protein in 1 kg meat
+    fertPperMprot[i,,n] = (fertPpermeat[i,,n] / (meatdata[i,z] / 1000)) # kg P fert / kg protein in 1 kg meat
   }
   
   fertNpermeat[5,,n] = 0
@@ -99,9 +99,9 @@ totCprot = array(0,c(n_crops,nyrs)) # kg protein provided by each crop food prod
 MNsumkg = array(0,c(n_meats,4,nyrs)) # fert, fix, NH3, manure N normalized by mass
 MNsumkcal = array(0,c(n_meats,4,nyrs)) # fert, fix, NH3, manure N normalized by kcal
 MNsumprot = array(0,c(n_meats,4,nyrs)) # fert, fix, NH3, manure N normalized by protein
-MPsumkg = array(0,c(n_meats,2,nyrs)) # fert, manure N normalized by mass
-MPsumkcal = array(0,c(n_meats,2,nyrs)) # fert, manure N normalized by kcal
-MPsumprot = array(0,c(n_meats,2,nyrs)) # fert, manure N normalized by protein
+MPsumkg = array(0,c(n_meats,3,nyrs)) # fert, manure P normalized by mass
+MPsumkcal = array(0,c(n_meats,3,nyrs)) # fert, P supplement, and manure P normalized by kcal
+MPsumprot = array(0,c(n_meats,3,nyrs)) # fert,P supplement, and manure P normalized by protein
 CNsumkg = array(0,c(n_crops,2,nyrs))  # col 1 sum of fert per kg crop col 2 sum of N fix per kg crop
 CPsumkg = array(0,c(n_crops,nyrs))  # col 1 sum of fert per kg crop
 CNsumkcal = array(0,c(n_crops,2,nyrs)) # col 1 sum of fert per kcal (in 1 kg) crop col 2 sum of N fix per kcal in crop
@@ -133,13 +133,16 @@ for(n in 1:nyrs){
   MNsumprot[,4,n] = t(manureNperprot[,n])
   
   MPsumkg[,1,n] = rowSums(fertPpermeat[,,n])
-  MPsumkg[,2,n] = t(manurePpermeat[n,])
+  MPsumkg[,2,n] = Psupp_permeat[,n]
+  MPsumkg[,3,n] = t(manurePpermeat[n,])
   
   MPsumkcal[,1,n] = rowSums(fertPperMkcal[,,n])
-  MPsumkcal[,2,n] = t(manurePperkcal[,n])
+  MPsumkcal[,2,n] = Psupp_perkcal[,n]
+  MPsumkcal[,3,n] = t(manurePperkcal[,n])
   
   MPsumprot[,1,n] = rowSums(fertPperMprot[,,n])
-  MPsumprot[,2,n] = t(manurePperprot[,n])
+  MPsumprot[,2,n] = Psupp_perprot[,n]
+  MPsumprot[,3,n] = t(manurePperprot[,n])
   
   #crops
   CNsumkg[,1,n] = unitfertNC[,n]

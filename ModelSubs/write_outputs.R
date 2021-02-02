@@ -83,8 +83,9 @@ for(n in 1:nyrs){
   total_meat_fertP[,n] = rowSums(fertPmeattot[,,n])/(10^9) #fertilizer inputs to meat products in each year
   total_meat_fixN[,n] = rowSums(fixNmeattot[,,n])/(10^9) #fertilizer inputs to meat products in each year
 }
-total_meat_manureN = colSums(manureNmeat)/(10^9) #kg N
-total_meat_manureP = colSums(manurePmeat)/(10^9) #kg P
+total_meat_suppP = Psupp4meat/10^9 #billion kg P
+total_meat_manureN = colSums(manureNmeat)/(10^9) #billion kg N
+total_meat_manureP = colSums(manurePmeat)/(10^9) #billion kg P
 
 ## Field loss proportions
 Nincrop=cropdata[,1]*cropdata[,2]

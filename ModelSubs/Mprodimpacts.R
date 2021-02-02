@@ -2,8 +2,8 @@
 ## MEAT FERT, FIX, NH3, N2O, CH4, LU, and MANURE
 ## impact per meat
 #allocate space for matrices
-animNReqC = array(0,c(n_anims,n_crops,nyrs))
-animPReqC = array(0,c(n_anims,n_crops,nyrs))
+animNfromC = array(0,c(n_anims,n_crops,nyrs))
+animPfromC = array(0,c(n_anims,n_crops,nyrs))
 C4animNtot = array(0,c(n_crops,nyrs))
 C4animPtot = array(0,c(n_crops,nyrs))
 totmeat = array(0,c(nyrs,n_meats))
@@ -70,8 +70,7 @@ manurePpermeat = array(0,c(nyrs,n_meats))
 manurePperkcal = array(0,c(n_meats,nyrs))
 manurePperprot = array(0,c(n_meats,nyrs))
 
-#new (7/21/20), assumes animals' modeled diets are correct and P needs are perfectly met in US, and therefore
-#P supplementation is equivalent to the quantity of missing digestible P in animals' modeled diets
+#new (7/21/20), estimates of P supplementation based on mineral P availability and animal P needs
 Psupp4meat = array(0,c(n_meats,nyrs))
 Psupp_permeat = array(0,c(n_meats,nyrs))
 Psupp_perkcal = array(0,c(n_meats,nyrs))
@@ -95,8 +94,8 @@ if(protassump == 1){
 }
 
 for(n in 1:nyrs){
-  animNReqC[,,n] = cropNtoanim[,,n]
-  animPReqC[,,n] = cropPtoanim[,,n]
+  animNfromC[,,n] = cropNtoanim[,,n]
+  animPfromC[,,n] = cropPtoanim[,,n]
   
   #sum crop N for animals for each animal product category over all watersheds
   C4animNtot[,n] = t(colSums(C4animN[,,n]))
@@ -111,8 +110,8 @@ for(n in 1:nyrs){
   totmanureP[n,] = colSums(kgmanureP[,,n])
   
   for(i in 1:n_anims){
-    feedN4anim[i,,n] = animNReqC[i,,n] * totnoanimws[n,i]
-    feedP4anim[i,,n] = animPReqC[i,,n] * totnoanimws[n,i]
+    feedN4anim[i,,n] = animNfromC[i,,n] * totnoanimws[n,i]
+    feedP4anim[i,,n] = animPfromC[i,,n] * totnoanimws[n,i]
     #note that i am assuming that feed for
     #supporting all livestock is
     #required to support meat
@@ -132,28 +131,6 @@ for(n in 1:nyrs){
     feedperanim[i,,n] = feed4anim[i,,n] / sum(noanimwsdyn[,i,n]) # feed for each animal in a year
   }
   feedperanim[16,,n] = 0 # zero feed for dairy stockers
-  
-  animNreqmeat[1,n] = (((sum(kganimNreqs[,1,n]) + sum(kganimNreqs[,10,n])) 
-                        + sum(kganimNreqs[,11,n])) + sum(kganimNreqs[,13,n])) + sum(kganimNreqs[,15,n])
-  animNreqmeat[2,n] = ((sum(kganimNreqs[,2,n]) + sum(kganimNreqs[,12,n])) + sum(kganimNreqs[,14,n])) + sum(kganimNreqs[,16,n])
-  animNreqmeat[3,n] = sum(kganimNreqs[,3,n]) + sum(kganimNreqs[,4,n])
-  animNreqmeat[4,n] = sum(kganimNreqs[,17,n]) #sheep, sum(kganimNreqs[,17,n])
-  animNreqmeat[5,n] = sum(kganimNreqs[,18,n]) #horses...maybe make 0 also? sum(kganimNreqs[,18,n])
-  animNreqmeat[6,n] = sum(kganimNreqs[,5,n])
-  animNreqmeat[7,n] = sum(kganimNreqs[,7,n]) + sum(kganimNreqs[,8,n])
-  animNreqmeat[8,n] = sum(kganimNreqs[,6,n]) + sum(kganimNreqs[,9,n])
-  animNreqmeat[9,n] = sum(kganimNreqs[,19,n])  #goats, sum(kganimNreqs[,19,n])
-  
-  animPreqmeat[1,n] = (((sum(kganimPreqs[,1,n]) + sum(kganimPreqs[,10,n])) 
-                        + sum(kganimPreqs[,11,n])) + sum(kganimPreqs[,13,n])) + sum(kganimPreqs[,15,n])
-  animPreqmeat[2,n] = ((sum(kganimPreqs[,2,n]) + sum(kganimPreqs[,12,n])) + sum(kganimPreqs[,14,n])) + sum(kganimPreqs[,16,n])
-  animPreqmeat[3,n] = sum(kganimPreqs[,3,n]) + sum(kganimPreqs[,4,n])
-  animPreqmeat[4,n] = sum(kganimPreqs[,17,n]) #sheep, sum(kganimPreqs[,17,n])
-  animPreqmeat[5,n] = sum(kganimPreqs[,18,n]) #horses...maybe make 0 also? sum(kganimPreqs[,18,n])
-  animPreqmeat[6,n] = sum(kganimPreqs[,5,n])
-  animPreqmeat[7,n] = sum(kganimPreqs[,7,n]) + sum(kganimPreqs[,8,n])
-  animPreqmeat[8,n] = sum(kganimPreqs[,6,n]) + sum(kganimPreqs[,9,n])
-  animPreqmeat[9,n] = sum(kganimPreqs[,19,n])  #goats, sum(kganimPreqs[,19,n])
   
   feedN4meat[1,,n] = (((feedN4anim[1,,n] + feedN4anim[10,,n]) + feedN4anim[11,,n]) + feedN4anim[13,,n]) + feedN4anim[15,,n]
   feedN4meat[2,,n] = ((feedN4anim[2,,n] + feedN4anim[12,,n]) + feedN4anim[14,,n]) + feedN4anim[16,,n]
@@ -202,7 +179,7 @@ for(n in 1:nyrs){
   feedNpermeat[5,,n] = 0  # horses. redundant?
   feedPpermeat[5,,n] = 0  # horses. redundant?
   
-  for(i in 1:n_crops){ #*changed from 15 to n_crops
+  for(i in 1:n_crops){
     feedpermeat[,i,n] = feedNpermeat[,i,n] / NperC[i] # feed per kg meat
     #feedpermeat[,i,n] = feedPpermeat[,i,n] / PperC[i] # feed per kg meat ->>Check?
   }
@@ -323,15 +300,13 @@ for(n in 1:nyrs){
   manureNpermeat[n,5] = 0 #horses
   manurePpermeat[n,5] = 0 #horses
   
-  # calc manure per kcal and g protein in 1 kg animal product
+  # calc manure per kcal and g protein
   for(i in 1:n_meats){
     if(meatdata[i,3]>0){ #if edible portion is > 0
       manureNperkcal[i,n] = (manureNpermeat[n,i] / meatdata[i,7]) # (kg manure N/kg meat) *(kg meat/kcal)= kg manure/kcal in 1 kg meat
-      manureNperprot[i,n] = (manureNpermeat[n,i] / (meatdata[i,z] / 1000)) # (kg manure N/kg meat) 
-      # * (kg meat/g protein]= kg manure N/g protein in 1 kg meat
+      manureNperprot[i,n] = (manureNpermeat[n,i] / (meatdata[i,z] / 1000)) # (kg manure N per kg meat/kg prot per kg meat)  
       manurePperkcal[i,n] = (manurePpermeat[n,i] / meatdata[i,7]) # (kg manure P/kg meat) *(kg meat/kcal)= kg manure/kcal in 1 kg meat
-      manurePperprot[i,n] = (manurePpermeat[n,i] / (meatdata[i,z] / 1000)) # (kg manure P/kg meat) 
-      # * (kg meat/g protein]= kg manure P/g protein in 1 kg meat
+      manurePperprot[i,n] = (manurePpermeat[n,i] / (meatdata[i,z] / 1000)) # (kg manure P per kg meat/kg prot per kg meat) 
       Psupp_perkcal[i,n] = Psupp_permeat[i,n] / meatdata[i,7]
       Psupp_perprot[i,n] = Psupp_permeat[i,n] / (meatdata[i,z] / 1000)
     }else{

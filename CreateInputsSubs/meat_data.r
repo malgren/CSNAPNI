@@ -26,7 +26,7 @@ for(n in 1:length(import_yrs)){
   animpoptotal_sort[9,n]=animpoptotal[19,n] #goats
 }
 for(col in 1:old){
-  kgmeatperanim[,col]=meatprod_old[,col]/animpoptotal_sort[,col+3] #need this to calc yearly (02 and 07 kg meat per animal, these two columns should be the same
+  kgmeatperanim[,col]=meatprod_old[,col]/animpoptotal_sort[,col+which(import_yrs=="02")] #need this to calc yearly (02 and 07 kg meat per animal, these two columns should be the same/very similar)
 }
 for(a in 1:9){
   kgmeatperanim_avg[a]=mean(kgmeatperanim[a,]) #average kg meat per animal

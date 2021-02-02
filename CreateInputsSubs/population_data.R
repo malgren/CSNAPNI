@@ -47,6 +47,10 @@ for(i in 1:length(import_yrs)){
      abs(import_yrs[i]-1987)<abs(import_yrs[i]-1992)){
     populationcty[,i]=as.numeric(populationdenscty[3:3113,6])*areakm2_cnty
   }
+  #if the year is 2017, use the 2012 pop + 5%
+  if((import_yrs[i]-2017)==0){
+    populationcty[,i]=as.numeric(populationdenscty[3:3113,1])*areakm2_cnty*1.05 #increase
+  }
   populationws[,i]=populationcty[,i]%*%cnty_ws
   populationdensws[,i]=populationws[,i]/area
 }

@@ -137,6 +137,14 @@ for(n in 1:data_yrs){
   #and P requirements for each livestock category
   animgrainN[,n]=animNreq*animpoptotal[,n]*propNfromgrain-rowSums(cropNtoanimtotal[,17:19,n])
   animgrainP[,n]=animPreq*animpoptotal[,n]*propPfromgrain-rowSums(cropPtoanimtotal[,17:19,n])
+  negativesN = which(animgrainN[,n]<0)
+  negativesP = which(animgrainP[,n]<0)
+  for(i in negativesN){
+    animgrainN[i,n] = 0
+  }
+  for(i in negativesP){
+    animgrainP[i,n] = 0
+  }
   animforageN[,n]=animNreq*animpoptotal[,n]*propNfromforage
   animforageP[,n]=animPreq*animpoptotal[,n]*propPfromforage
   for(c in 1:16){ #each crop except for etoh coproducts

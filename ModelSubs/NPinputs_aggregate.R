@@ -63,7 +63,8 @@ for(n in 1:nyrs){
   FF_N[,n] = (NANIanimreq[,n] + hmnNreqs[,n]) - ((NANIanimN[,n] + NANIcropN[,n]) + NANIcropNexp[,n])
   #NANIcropN values have exported quantities removed
   
-  FF_P[,n] = (NAPIanimreq[,n] + hmnfoodPreqs[,n]) - ((NAPIanimP[,n] + NAPIcropP[,n]) + NAPIcropPexp[,n] + NAPIsuppP[,n]) 
+  FF_P[,n] = (NAPIanimreq[,n] + hmnfoodPreqs[,n]) - ((NAPIanimP[,n] + NAPIcropP[,n]) + NAPIcropPexp[,n] + NAPIsuppP[,n]) # + NAPIanimreq[,n]*0.041) # is a proxy for animal protein feed recycling into animal diets, 
+                                                                                                                                                # which reduces the need for new P imports 
   #NAPIcropP values have exported quantities removed
   
   FFtotN[,n] = FF_N[,n] * areaws

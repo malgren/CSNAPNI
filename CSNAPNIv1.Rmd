@@ -261,6 +261,7 @@ barplot(unitfertNetoh*10^3,
 axis(2)
 box()
 ```
+
 ```{r echo=FALSE, results = 'asis'}
 library(knitr)
 unitfertNetoh_df = data.frame(unitfertNetoh*10^3)
