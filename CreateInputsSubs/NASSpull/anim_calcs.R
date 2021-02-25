@@ -335,3 +335,12 @@ for(n in 1:(length(year))){
   write.table(anim_avg_inv_array[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
 }
 
+#write keys
+write_name = paste("InputFileKeys/NASSanimkey.txt",sep = "")
+write.table(c("annual average population, estimated using dynamic animal population averaging methods from Kellog et al 2000", 
+                  "cols: [1]fattened_cattle, [2]milk_cows, [3]hogs_for_breeding, [4]hogs_for_slaughter, [5]layers,
+                  [6]breeding_turkeys, [7]pullets, [8]broilers, [9]slaughter_turkeys, [10]beef_breeding_herd,
+                  [11]beef_calves, [12]dairy_calves, [13]beef_heifers, [14]dairy_heifers,
+                  [15]beef_stockers, [16]dairy_stockers, [17]sheep, [18]horses, [19]goats", 
+                  "rows: US counties (IDs listed below)", cnty_IDs_NANI_NAPI[,1]), file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+

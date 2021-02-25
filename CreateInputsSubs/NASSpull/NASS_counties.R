@@ -107,10 +107,10 @@ for (i in 1:length(year)){
 }
 
 #list exceptions
-survey_not_census = c(list.files(path = "CreateInputsSubs/NASSpull/RawNASSData", pattern = "SURVEY", all.files = FALSE,
+survey_not_census = c(list.files(path = "CreateInputsSubs/NASSpull/RawNASSData/CountyData", pattern = "SURVEY", all.files = FALSE,
                                  full.names = FALSE, recursive = FALSE,
                                  ignore.case = FALSE, include.dirs = FALSE, no.. = FALSE))
-other_year = c(list.files(path = "CreateInputsSubs/NASSpull/RawNASSData", pattern = "using", all.files = FALSE,
+other_year = c(list.files(path = "CreateInputsSubs/NASSpull/RawNASSData/CountyData", pattern = "using", all.files = FALSE,
                           full.names = FALSE, recursive = FALSE,
                           ignore.case = FALSE, include.dirs = FALSE, no.. = FALSE))
 #Write exceptions to file

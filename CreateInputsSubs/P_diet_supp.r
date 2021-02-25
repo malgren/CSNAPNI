@@ -34,7 +34,7 @@ missingPtotal = colSums(missingPanimtotals) # total missing P in each year
 
 #result of calculations in Pfeedsupplementprod.xlsx
 mineral_P_to_feed_supplements = c(1.048,0.684,0.353,0.683,0.924)*10^9
-prop_P_need_avail = mineral_P_to_feed_supplements/missingPtotal
+prop_P_need_avail = mean(mineral_P_to_feed_supplements)/missingPtotal
 other_p_intake = missingPtotal - mineral_P_to_feed_supplements
 
 Psupp_peranim = array(0,c(n_anims,data_yrs))
@@ -43,8 +43,13 @@ otherP_peranim = array(0,c(n_anims,data_yrs))
 otherP_animtotals = array(0,c(n_anims,data_yrs))
 
 for(i in 1:data_yrs){
-  Psupp_peranim[,i] = missingPperanim[,i]*prop_P_need_avail[i]
-  otherP_peranim[,i] = missingPperanim[,i]*(1-prop_P_need_avail[i])
+  if(prop_P_need_avail[i]>1){
+    Psupp_peranim[,i] = missingPperanim[,i]
+    otherP_peranim[,i] = missingPperanim[,i]*0
+  }else{
+    Psupp_peranim[,i] = missingPperanim[,i]*prop_P_need_avail[i]
+    otherP_peranim[,i] = missingPperanim[,i]*(1-prop_P_need_avail[i])
+  }
   Psupp_animtotals[,i] = Psupp_peranim[,i]*animpoptotal[,i]
   otherP_animtotals[,i] = otherP_peranim[,i]*animpoptotal[,i]
 }

@@ -120,9 +120,8 @@ etoh_landuse = t(array(scan("InputFiles/etoh_landuse_harvestedarea.txt")))
 cropdata = t(array(scan("InputFiles/cropdata.txt"), c(18,19)))
 
 #ANIMAL DATA
-# import NANI inputs for diet calculations
 # key is in animdatadyn_master.txt (in RawData)
-animdatadyn = t(array(scan("InputFiles/animdatadyn.txt"),c(23,19)))  # for "dynamic" animal calcuations, see NANI documentation 
+# animdatadyn version is selected and imported in Settings.R
 
 #FERTILIZER DATA
 #N and P2O5 fertilization rates for crops

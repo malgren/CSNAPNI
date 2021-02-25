@@ -251,3 +251,10 @@ for(n in 1:(length(year))){
   write_name = paste("InputFiles/NASScropprod",year[n],".txt",sep = "")
   write.table(prod_array[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
 }
+
+#write keys
+write_name = paste("InputFileKeys/NASScropareas&prodkey.txt",sep = "")
+write.table(c("areas in km2, production in kg", "cols: [1] corn_grain, [2] corn_silage, [3] wheat_areas, [4] oats_areas, [5] barley_areas,
+           [6] sorghum_grain, [7] sorghum_silage, [8] potatoes, [9] rye,
+           [10] alfalfa_hay, [11] other_hay, [12] soybeans, [13] cropland_pasture,
+           [14] noncropland_pasture, [15] rice, [16] peanuts", "rows: US counties (IDs listed below)", cnty_IDs_NANI_NAPI[,1]), file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)

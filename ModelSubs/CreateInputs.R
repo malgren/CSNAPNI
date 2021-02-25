@@ -24,7 +24,7 @@ source("CreateInputsSubs/population_data.r") # *using 2012 for 2017 currently
 #####################################################################################
 ##Census of agriculture data (crop harvested areas and production, animal average populations) 
 #(from NASS QuickStats database, original source: USDA Ag Census)
-source("CreateInputsSubs/NASSpull/NANI_NAPI_NASS_pull.r") #check cropprod, animpop, and harvestedarea scripts
+source("CreateInputsSubs/NASSpull/NANI_NAPI_NASS_pull.r")
 source("CreateInputsSubs/cropprod_data.r")
 source("CreateInputsSubs/animpop_data.r")
 source("CreateInputsSubs/harvestedarea_data.r")

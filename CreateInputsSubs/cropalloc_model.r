@@ -96,8 +96,8 @@ for(n in 1:data_yrs){
 
 #ANIMALS
 #get livestock N and P requirements and diet propgrain and propforage
-animNreq = animdata_alloc[,1]
-animPreq = animdata_alloc[,2]
+animNreq = animdatadyn[,8]
+animPreq = animdatadyn[,9]
 propNfromgrain = animdata_alloc[,3] #proportion of each animal's required N that comes from grain
 propNfromforage = animdata_alloc[,4] #proportion of each animal's required N that comes from forage
 propPfromgrain = animdata_alloc[,5] #same for P
