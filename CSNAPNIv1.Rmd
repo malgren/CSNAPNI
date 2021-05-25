@@ -472,6 +472,7 @@ Pimpacts_major_feeds=fertPperMprot[meat_type,major_feeds_for_beef,year_range]
 Pimpacts_minor_feeds=colSums(fertPperMprot[meat_type,minor_feeds_for_beef,year_range]) #this combines the minor feeds into a single category
 Psupp = Psupp_perprot[meat_type,year_range]
 beefPinputstotal = colSums(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
+beef_df = data.frame(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
 barplot(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp), #N requirements of meat products over time
         main="a) beef",
         ylab="kg P input / kg protein",
@@ -491,6 +492,7 @@ Pimpacts_major_feeds=fertPperMprot[meat_type,major_feeds_for_beef,year_range]
 Pimpacts_minor_feeds=colSums(fertPperMprot[meat_type,minor_feeds_for_beef,year_range]) #this combines the minor feeds into a single category
 Psupp = Psupp_perprot[meat_type,year_range]
 porkPinputstotal = colSums(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
+pork_df = data.frame(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
 barplot(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp), #N requirements of meat products over time
         main="b) pork",
         ylab="kg P input / kg protein",
@@ -510,6 +512,7 @@ Pimpacts_major_feeds=fertPperMprot[meat_type,major_feeds_for_beef,year_range]
 Pimpacts_minor_feeds=colSums(fertPperMprot[meat_type,minor_feeds_for_beef,year_range]) #this combines the minor feeds into a single category
 Psupp = Psupp_perprot[meat_type,year_range]
 milkPinputstotal = colSums(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
+milk_df = data.frame(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
 barplot(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp), #N requirements of meat products over time
         main="c) milk",
         ylab="kg P input / kg protein",
@@ -529,6 +532,7 @@ Pimpacts_major_feeds=fertPperMprot[meat_type,major_feeds_for_beef,year_range]
 Pimpacts_minor_feeds=colSums(fertPperMprot[meat_type,minor_feeds_for_beef,year_range]) #this combines the minor feeds into a single category
 Psupp = Psupp_perprot[meat_type,year_range]
 eggsPinputstotal = colSums(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
+eggs_df = data.frame(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
 barplot(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp), #N requirements of meat products over time
         main="d) eggs",
         ylab="kg P input / kg protein",
@@ -548,6 +552,7 @@ Pimpacts_major_feeds=fertPperMprot[meat_type,major_feeds_for_beef,year_range]
 Pimpacts_minor_feeds=colSums(fertPperMprot[meat_type,minor_feeds_for_beef,year_range]) #this combines the minor feeds into a single category
 Psupp = Psupp_perprot[meat_type,year_range]
 chickenPinputstotal = colSums(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
+chicken_df = data.frame(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
 barplot(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp), #N requirements of meat products over time
         main="e) chicken",
         ylab="kg P input / kg protein",
@@ -567,6 +572,7 @@ Pimpacts_major_feeds=fertPperMprot[meat_type,major_feeds_for_beef,year_range]
 Pimpacts_minor_feeds=colSums(fertPperMprot[meat_type,minor_feeds_for_beef,year_range]) #this combines the minor feeds into a single category
 Psupp = Psupp_perprot[meat_type,year_range]
 turkeyPinputstotal = colSums(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
+turkey_df = data.frame(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp))
 barplot(rbind(Pimpacts_major_feeds,Pimpacts_minor_feeds,Psupp), #N requirements of meat products over time
         main="f) turkey",
         ylab="kg P input / kg protein",

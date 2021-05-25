@@ -60,6 +60,8 @@ for(n in 1:(length(import_yrs))){
   ##crop production
   write_name = paste("InputFiles/cropprod",run_yrs[n],".txt",sep = "")
   write.table(cropproddensws[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  write_name = paste("InputFiles/cropprodcnty",run_yrs[n],".txt",sep = "")
+  write.table(cropprodcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   ##total corn production
   write_name = "InputFiles/cornprodnoetoh.txt"
   write.table(cornprodnoetoh, file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)

@@ -69,6 +69,7 @@ manureNperprot = array(0,c(n_meats,nyrs))
 manurePpermeat = array(0,c(nyrs,n_meats))
 manurePperkcal = array(0,c(n_meats,nyrs))
 manurePperprot = array(0,c(n_meats,nyrs))
+kganimPintakefromC = array(0,c(n_ws_NEEA,n_anims,nyrs))
 
 #new (7/21/20), estimates of P supplementation based on mineral P availability and animal P needs
 Psupp4meat = array(0,c(n_meats,nyrs))
@@ -112,13 +113,12 @@ for(n in 1:nyrs){
   for(i in 1:n_anims){
     feedN4anim[i,,n] = animNfromC[i,,n] * totnoanimws[n,i]
     feedP4anim[i,,n] = animPfromC[i,,n] * totnoanimws[n,i]
-    #note that i am assuming that feed for
-    #supporting all livestock is
-    #required to support meat
-    #production, this equals
-    #kganimreqs, prob could delete
-    #one for shorter code
+    kganimPintakefromC[,i,n] = sum(animPfromC[i,,n]) * noanimwsdyn[,i,n]
+    #this is not the same as
+    #kganimreqs, because it's based not on the anim P intake inputs,
+    #but on the modeled crop and P supplement allocations to animals
   }
+  
   
   for(i in 1:n_crops){
     # kg crop for each animal

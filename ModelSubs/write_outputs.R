@@ -142,7 +142,21 @@ for(n in 1:nyrs){
   write_name = paste("OutputFiles/CB_noanimwsdyn",run_yrs[n],".txt",sep = "")
   write.table(noanimwsdyn[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
+  #recoverable manure N by county
+  write_name = paste("OutputFiles/kgmanureNreccnty",run_yrs[n],".txt",sep = "")
+  write.table(kgmanureNrec[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
+  #recoverable manure P by county
+  write_name = paste("OutputFiles/kgmanurePreccnty",run_yrs[n],".txt",sep = "")
+  write.table(kgmanurePrec[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  #fertilizer N by county
+  write_name = paste("OutputFiles/kgfertNcnty",run_yrs[n],".txt",sep = "")
+  write.table(cropprodcnty[,,n]*unitfertNC[,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  #fertilizer P by county
+  write_name = paste("OutputFiles/kgfertPcnty",run_yrs[n],".txt",sep = "")
+  write.table(cropprodcnty[,,n]*unitfertPC[,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
 }
 
 write_name = paste("OutputFiles/etohfertNtot.txt",sep = "")

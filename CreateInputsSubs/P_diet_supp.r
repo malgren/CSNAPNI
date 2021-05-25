@@ -16,25 +16,26 @@ missingPperanim = array(0, c(n_anims,data_yrs))
 missingPanimtotals = array(0, c(n_anims,data_yrs))
 
 #waste_P_from_slaughter
-anim_prot_feed_P = array(0,c(n_anims,data_yrs))
+total_anim_feed_P = array(0,c(n_anims,data_yrs))
 
 for(i in 1:data_yrs){
-  missingPperanim[,i] = (animPreq-rowSums(cropPtoanim[,,i]))
+  for(j in 1:n_anims){
+    total_anim_feed_P[j,i] = (animPreq[j]*animpoptotal[j,i])
+    if(total_anim_feed_P[j,i]>0){
+      missingPperanim[j,i] = (animPreq[j]-sum(cropPtoanim[j,,i]))
+    }
+  }
   #remove negative values (P overallocations)
   missingPperanim[missingPperanim[,i]<0,i] = 0
   missingPanimtotals[,i] = missingPperanim[,i]*animpoptotal[,i]
-  # estimate P available for animal protein feed use (P intake - P in meat - P in manure - P waste from slaughter)
-  for(j in 1:n_anims){
-    anim_prot_feed_P[j,i] = (animPreq[j]*animpoptotal[j,i])*0.041 #4.1% factor backcalculated from Suh and Yee's estimate of .121 billion kg P used as animal protein feed in 2007
-  }
 }
 
 
 missingPtotal = colSums(missingPanimtotals) # total missing P in each year
 
 #result of calculations in Pfeedsupplementprod.xlsx
-mineral_P_to_feed_supplements = c(1.048,0.684,0.353,0.683,0.924)*10^9
-prop_P_need_avail = mean(mineral_P_to_feed_supplements)/missingPtotal
+mineral_P_to_feed_supplements = c(0.89,0.36,0.28,0.68,0.93)*10^9
+avg_prop_P_need_avail = mean(mineral_P_to_feed_supplements)/missingPtotal
 other_p_intake = missingPtotal - mineral_P_to_feed_supplements
 
 Psupp_peranim = array(0,c(n_anims,data_yrs))
@@ -43,12 +44,12 @@ otherP_peranim = array(0,c(n_anims,data_yrs))
 otherP_animtotals = array(0,c(n_anims,data_yrs))
 
 for(i in 1:data_yrs){
-  if(prop_P_need_avail[i]>1){
+  if(avg_prop_P_need_avail[i]>1){
     Psupp_peranim[,i] = missingPperanim[,i]
     otherP_peranim[,i] = missingPperanim[,i]*0
   }else{
-    Psupp_peranim[,i] = missingPperanim[,i]*prop_P_need_avail[i]
-    otherP_peranim[,i] = missingPperanim[,i]*(1-prop_P_need_avail[i])
+    Psupp_peranim[,i] = missingPperanim[,i]*avg_prop_P_need_avail[i]
+    otherP_peranim[,i] = missingPperanim[,i]*(1-avg_prop_P_need_avail[i])
   }
   Psupp_animtotals[,i] = Psupp_peranim[,i]*animpoptotal[,i]
   otherP_animtotals[,i] = otherP_peranim[,i]*animpoptotal[,i]

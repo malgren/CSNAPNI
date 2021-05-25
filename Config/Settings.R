@@ -2,7 +2,7 @@
 ## This file contains all user-adjustable input parameters for CSNAPNI.
 
 #Regenerate input files? 0=no, 1=yes
-get_new_data=1
+get_new_data=0
 print(paste("Input files regenerated (0=no, 1=yes): ", get_new_data),quote=FALSE)
 
 ##input file creation settings
@@ -19,7 +19,7 @@ if(protassump==1){
   print(paste("Using DeVries' protein assumptions for meat."),quote=FALSE)
 }
 
-#animal P intake
+#animal P intake (if this is changed, get_new_data should be set to 1 for at least one run)
 #animdatadyn = t(array(scan("InputFiles/animdatadyn_min.txt"), c(23,19))) #minimum P intakes
 animdatadyn = t(array(scan("InputFiles/animdatadyn_max.txt"), c(23,19))) #maximum P intakes
 

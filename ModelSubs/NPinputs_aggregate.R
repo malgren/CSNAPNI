@@ -12,7 +12,7 @@
 
 #allocate space for arrays
 NANIanimreq = array(0,c(n_ws_NEEA,nyrs))
-NAPIanimreq = array(0,c(n_ws_NEEA,nyrs))
+NAPIanimPintakefromC = array(0,c(n_ws_NEEA,nyrs))
 NANIanimN = array(0,c(n_ws_NEEA,nyrs))
 NAPIanimP = array(0,c(n_ws_NEEA,nyrs))
 NANIcropN = array(0,c(n_ws_NEEA,nyrs))
@@ -49,7 +49,9 @@ P4humanppWW = array(0,c(nyrs,1))
 
 for(n in 1:nyrs){
   NANIanimreq[,n] = rowSums(kganimNreqs[,,n]) / areaws
-  NAPIanimreq[,n] = rowSums(kganimPreqs[,,n]) / areaws
+  NAPIanimPintakefromC[,n] = rowSums(kganimPintakefromC[,,n]) / areaws #this is not the same as
+  #kganimreqs, because it's based on the modeled crop and P supplement allocations to animals
+  #not just the anim P intake rates
   
   NANIanimN[,n] = rowSums(animN[,,n]) / areaws # calculated as anim N req - anim N manure, rather than from meat
   NAPIanimP[,n] = rowSums(animP[,,n]) / areaws # should be calculated just from meat!
@@ -63,7 +65,7 @@ for(n in 1:nyrs){
   FF_N[,n] = (NANIanimreq[,n] + hmnNreqs[,n]) - ((NANIanimN[,n] + NANIcropN[,n]) + NANIcropNexp[,n])
   #NANIcropN values have exported quantities removed
   
-  FF_P[,n] = (NAPIanimreq[,n] + hmnfoodPreqs[,n]) - ((NAPIanimP[,n] + NAPIcropP[,n]) + NAPIcropPexp[,n] + NAPIsuppP[,n]) # + NAPIanimreq[,n]*0.041) # is a proxy for animal protein feed recycling into animal diets, 
+  FF_P[,n] = (NAPIanimPintakefromC[,n] + NAPIsuppP[,n] + hmnfoodPreqs[,n]) - ((NAPIanimP[,n] + NAPIcropP[,n]) + NAPIcropPexp[,n] + NAPIsuppP[,n]) # + NAPIanimreq[,n]*0.041) # is a proxy for animal protein feed recycling into animal diets, 
                                                                                                                                                 # which reduces the need for new P imports 
   #NAPIcropP values have exported quantities removed
   

@@ -185,7 +185,7 @@ for(i in 1:(length(pasture_area_list))){
   cropland_pasture_areas[,i] = as.numeric(NASS_County[, cropland_pasture_area_list[i]])*km2peracre
   noncropland_pasture_areas[,i] = all_pastureland_areas[,i] - cropland_pasture_areas[,i]
 }
-cp_yield = 112000 #yield factor from NANI/NAPI Toolbox data
+cp_yield = 112000 #yield factor from NANI/NAPI Toolbox data, kg per km2
 ncp_yield = 56000 #yield factor from NANI/NAPI Toolbox data
 cropland_pasture_prod = cp_yield*cropland_pasture_areas
 noncropland_pasture_prod = ncp_yield*noncropland_pasture_areas

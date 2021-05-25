@@ -28,9 +28,12 @@ population = t(array(scan("InputFiles/population.txt"), c(nyrs,n_ws_tbx)))
 #crop production densities (kg/km2) in watersheds (450 set)
 #key is in cropprod_key.txt
 cropprod=array(0,c(n_ws_tbx,n_crops,nyrs))
+cropprodcnty=array(0,c(n_cnty,n_crops,nyrs))
 for(n in 1:length(run_yrs)){
   file_name = paste("InputFiles/cropprod",run_yrs[n],".txt",sep = "")
   cropprod[,,n]=t(array(scan(file_name), c(n_crops,n_ws_tbx)))
+  file_name = paste("InputFiles/cropprodcnty",run_yrs[n],".txt",sep = "")
+  cropprodcnty[,,n]=t(array(scan(file_name), c(n_crops,n_cnty)))
 }
 #key is in cornprodnoetoh_key.txt
 cornprodnoetoh = t(array(scan("InputFiles/cornprodnoetoh.txt"), c(nyrs,n_cnty)))
