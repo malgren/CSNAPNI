@@ -1,6 +1,10 @@
 #fertrates_data.r
 #This script pulls the crop fertilization rates from a summary spreadsheet, cropfertrates.xlsx, and converts the values from lbs/acre to kg/km
 
+if(print_tags == 1){
+  print("CreateInputsSubs/fertrates_data.R")
+}
+
 read_file = 'RawData/cropfertrates.xlsx' #these areas are planted areas 
 import_yrs6 = c("1997","2002","2007","2012","2017") #this file contains data from years, 1997-2017
 read_sheet1 = 'Nfert'

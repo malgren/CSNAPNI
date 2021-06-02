@@ -3,6 +3,11 @@
 #from NANI_NAPI_NASS_pull.r
 #uses "anim_avg_inv_array"
 
+if(print_tags == 1){
+  print("CreateInputsSubs/animpop_data.R")
+}
+
+
 # Specify number and names of crop categories
 n_animtyp = 19 #number of crops to import
 animtyp=array("",c(n_crops))

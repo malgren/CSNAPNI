@@ -1,6 +1,10 @@
 #NANI_NAPI_NASS_pull.r
 # Script to extract and save raw 1987-2017 ag census data from USDA NASS database
 
+if(print_tags == 1){
+  print("CreateInputsSubs/NASSpull/NANI_NAPI_NASS_pull.R")
+}
+
 # Data to pull: 
 # harvest and production data for
 #(1) corn grain, (2) corn silage, (3) wheat, (4) oats,

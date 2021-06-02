@@ -1,6 +1,10 @@
 #anim_calcs
 #dynamic calculation methods derived from Kellogg et al 2000, without conversion to 1000 lb "animal units"
 
+if(print_tags == 1){
+  print("CreateInputsSubs/NASSpull/anim_calcs.R")
+}
+
 #(1) fattened cattle (uses data from `CATTLE, ON FEED - SALES FOR SLAUGHTER, MEASURED IN HEAD`)
 #(2) milk cows (uses data from `CATTLE, COWS, MILK - INVENTORY`)
 #(3) hogs for breeding, (uses data from 'HOGS, BREEDING - INVENTORY')

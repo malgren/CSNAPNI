@@ -1,4 +1,9 @@
 #anim_query_data
+
+if(print_tags == 1){
+  print("CreateInputsSubs/NASSpull/anim_query_data.R")
+}
+
 # inventory data for
 #(1) fattened cattle (uses data from `CATTLE, ON FEED - SALES FOR SLAUGHTER, MEASURED IN HEAD`)
 #(2) milk cows (uses data from `CATTLE, COWS, MILK - INVENTORY`)

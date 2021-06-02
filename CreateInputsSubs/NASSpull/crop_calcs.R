@@ -1,4 +1,9 @@
 #crop_calcs.r
+
+if(print_tags == 1){
+  print("CreateInputsSubs/NASSpull/crop_calcs.R")
+}
+
 # use USDA Census data to calculate
 # harvest (in km^2) and production (in kg) for
 # (1) corn grain, (need 'CORN, GRAIN - ACRES HARVESTED', 'CORN, GRAIN - PRODUCTION, MEASURED IN BU')

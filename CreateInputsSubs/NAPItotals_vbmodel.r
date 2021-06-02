@@ -5,6 +5,10 @@
 #Food_Feed_P in kgP/km2/yr (column 4)
 #Non_Food_Crops in kgP/km2/yr (columns 5, 6, 7)
 
+if(print_tags == 1){
+  print("CreateInputsSubs/NAPItotals_vbmodel.R")
+}
+
 read_file = 'RawData/NAPIdata_extract.xlsx'
 import_yrs3 = c("1997","2002","2007","2012","2017") #data years to import
 import_yrs = c("97","02","07","12","17")  #years for file names

@@ -1,6 +1,10 @@
 # NEEAshedsdyn.R
 ## This script sorts the 450 NANI Toolbox watersheds into 144 NEEA watersheds
 
+if(print_tags == 1){
+  print("ModelSubs/NEEAshedsdyn.R")
+}
+
 #allocate matrix space
 CkgwswE_orig = array(0,c(n_ws_NEEA,n_crops,nyrs))  # variable to hold the NANI values that correspond to
 # the watersheds in the NEEA database 

@@ -1,5 +1,9 @@
 # Script to extract and save state-level 1997-2017 ag census data from USDA NASS database
 
+if(print_tags == 1){
+  print("CreateInputsSubs/NASSpull/NASS_states.R")
+}
+
 write(paste("Error Log:",Sys.time()), file = "CreateInputsSubs/NASSpull/RawNASSData/StateData/Error_Log.txt",
       append = FALSE, sep = "/n")
 

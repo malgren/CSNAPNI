@@ -1,6 +1,10 @@
 # CropProd.R
 # This script calculates crop production and export vectors
 
+if(print_tags == 1){
+  print("ModelSubs/CropProd.R")
+}
+
 #allocate space to matrices
 CkgwswE = array(0,c(n_ws_NEEA,n_crops,nyrs))
 Ckgws = array(0,c(n_ws_NEEA,n_crops,nyrs)) # domestically available total (i.e., does not include exported quantities)

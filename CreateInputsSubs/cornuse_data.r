@@ -1,6 +1,11 @@
 #This script pulls corn supply and disappearance and DDGS data from an excel file with data compiled from
 #from https://www.ers.usda.gov/data-products/feed-grains-database/feed-grains-yearbook-tables.aspx
 #and https://www.ers.usda.gov/data-products/us-bioenergy-statistics/us-bioenergy-statistics/#Supply and Disappearance
+
+if(print_tags == 1){
+  print("CreateInputsSubs/cornuse_data.R")
+}
+
 read_file = 'RawData/CornSupplyandDisapp-AllYears.xlsx' 
 import_yrs = c("1997/98", "2002/03", "2007/08", "2012/13", "2017/18") #data years to import
 read_sheet1 = 'SuppandDisap' #corn supply and disappearance (million bushels)

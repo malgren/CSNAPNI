@@ -2,6 +2,11 @@
 ## Pulls crop export data from USDA NASS and GATS databases for estimation of domestically available crop quantities
 ## https://www.ers.usda.gov/data-products/feed-grains-database/feed-grains-yearbook-tables.aspx
 ## https://www.ers.usda.gov/data-products/us-bioenergy-statistics/us-bioenergy-statistics/#Supply and Disappearance
+
+if(print_tags == 1){
+  print("CreateInputsSubs/export_data.R")
+}
+
 read_file = 'RawData/CropExportData.xlsx'
 import_yrs1 = c("1997/98","2002/03","2007/08","2012/13","2017/18")
 import_yrs2 = c(1997,2002,2007,2012,2017) #for potato data and data from GATS

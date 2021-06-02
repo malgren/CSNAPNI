@@ -2,6 +2,10 @@
 ## This file generates input files needed to run NANI and NAPI by loading and formatting data from various sources.
 ## All the source files are in the "Raw Data" folder.
 
+if(print_tags == 1){
+  print("ModelSubs/CreateInputs.R")
+}
+
 # Start the clock!
 ptm <- proc.time()
 

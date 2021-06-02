@@ -7,6 +7,10 @@
 #Food_Feed_N in kgN/km2/yr (column 12)
 #Non_Food_Crops in kgN/km2/yr (columns 13, 14, 15)
 
+if(print_tags == 1){
+  print("CreateInputsSubs/NANItotals_vbmodel.R")
+}
+
 read_file = 'RawData/NANIdata_extract.xlsx'
 import_yrs3 = c("1997","2002","2007","2012","2017") #data years to import
 import_yrs = c("97","02","07","12","17")  #years for file names

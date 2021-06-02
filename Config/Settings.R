@@ -1,6 +1,12 @@
 # Settings.R
 ## This file contains all user-adjustable input parameters for CSNAPNI.
 
+#Print Troubleshooting Tags
+print_tags = 1
+if(print_tags == 1){
+  print("Config/Settings.R")
+}
+
 #Regenerate input files? 0=no, 1=yes
 get_new_data=0
 print(paste("Input files regenerated (0=no, 1=yes): ", get_new_data),quote=FALSE)

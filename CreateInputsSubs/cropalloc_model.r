@@ -4,6 +4,10 @@
   #animal diet N and P requirements, and DDGS consumption (market share) estimations
   #to model allocations of crops/feeds to animals
 
+if(print_tags == 1){
+  print("CreateInputsSubs/cropalloc_model.R")
+}
+
 model_yrs = c("97","02","07","12","17")  #data years to import
 
 #Calculate crops available for domestic use
@@ -116,6 +120,7 @@ animforageN=array(0, c(n_anims,data_yrs)) #animal N requirement to be satisfied 
 animforageP=array(0, c(n_anims,data_yrs)) #animal P requirement to be satisfied by forage
 cropkgtoanimtotal_N=array(0, c(n_anims,n_crops,data_yrs)) #modeled allocation of each crop to each animal type in each year (N-based)
 cropkgtoanimtotal_P=array(0, c(n_anims,n_crops,data_yrs)) #modeled allocation of each crop to each animal type in each year (P-based)
+cropkgtoanim = array(0, c(n_anims,n_crops,data_yrs)) #modeled allocation of each crop per 1 animal in each year (N-based)
 
 for(n in 1:data_yrs){
   #allocate DGS and other etoh coproducts first
@@ -174,6 +179,14 @@ for(n in 1:data_yrs){
         cropPtoanim[zero_pops[k],i,j]=0
       }
     }
+  }
+  
+  #Calculate kg crop/animal for each crop in each year
+  cropkgtoanim[,,n] = cropkgtoanimtotal_N[,,n]/animpoptotal[,n]
+  #fix NaN problem with animal populations of zero
+  zero_pops=which(animpoptotal[,n] %in% 0)
+  for(k in 1:length(zero_pops)){
+    cropkgtoanim[zero_pops[k],,n]=0
   }
   
   #write data files

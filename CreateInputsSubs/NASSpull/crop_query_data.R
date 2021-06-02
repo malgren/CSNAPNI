@@ -1,4 +1,9 @@
 #crop_query_data
+
+if(print_tags == 1){
+  print("CreateInputsSubs/NASSpull/crop_query_data.R")
+}
+
 # harvest and production data for
 # (1) corn grain, (need 'CORN, GRAIN - ACRES HARVESTED', 'CORN, GRAIN - PRODUCTION, MEASURED IN BU')
 # (2) corn silage, (need 'CORN, SILAGE - ACRES HARVESTED', 'CORN, SILAGE - PRODUCTION, MEASURED IN TONS')

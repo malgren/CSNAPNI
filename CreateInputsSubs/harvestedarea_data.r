@@ -5,6 +5,10 @@
 #and aggregates it to crop-specific totals for each year (which we may not want to do in the future)
 #and allocates virtual areas to ethanol and coproducts
 
+if(print_tags == 1){
+  print("CreateInputsSubs/harvestedarea_data.R")
+}
+
 cropareacty = array(0,c(n_cnty,n_crops,length(import_yrs)))
 cropareacty[,1:(n_crops-3),] = areas_array
 cropareaws=array(0,c(n_ws_tbx,n_crops,length(import_yrs)))

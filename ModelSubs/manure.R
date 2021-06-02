@@ -9,6 +9,10 @@
 # 11.28.12 Adding code to apply confinement & recovery factors to manure
 # using state-specific data
 
+if(print_tags == 1){
+  print("ModelSubs/manure.R")
+}
+
 #allocate matrix space
 kgmanureNrec = array(0,c(n_cnty,n_anims,nyrs))         #***2002 data only****
 kgmanureNrec450 = array(0,c(n_ws_tbx,n_anims,nyrs))   #***2002 data only****

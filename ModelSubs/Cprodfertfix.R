@@ -1,6 +1,10 @@
 #Cprodfertfix.r
 #derive total and per unit values, i.e., kg N / kg edible food
 
+if(print_tags == 1){
+  print("ModelSubs/Cprodfertfix.R")
+}
+
 # unit N fixation
 unitfixNC = array(0,c(n_crops,nyrs))  # kg N from fixation per kg crop
 

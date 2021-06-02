@@ -1,4 +1,9 @@
 ## DETERMINE HUMAN N and P REQUIREMENTS
+
+if(print_tags == 1){
+  print("ModelSubs/hmn_reqs.R")
+}
+
 #allocate matrix space
 totnoanimws = array(0,c(nyrs,n_anims))      # total number of animals of each type in each year?
 tothmnNreqs = array(0,c(n_ws_NEEA,nyrs))     # total kg N required assuming available is consumed

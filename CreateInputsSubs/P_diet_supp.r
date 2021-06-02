@@ -12,6 +12,10 @@
 #and N-intake based allocation of each crop to each animal type in each year (cropPtoanim)
 #to calculate the diet P deficit
 
+if(print_tags == 1){
+  print("CreateInputsSubs/P_diet_supp.R")
+}
+
 missingPperanim = array(0, c(n_anims,data_yrs))
 missingPanimtotals = array(0, c(n_anims,data_yrs))
 

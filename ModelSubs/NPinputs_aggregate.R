@@ -6,9 +6,13 @@
 # approximate animal N available is calculated by estimating animal carcass 
 # weight, edible portion of carcass and N in edible portion.  In this 
 # analysis animal N requirements are calculated for animal populations based 
-# on dynamic population estimates for all animals . N in animals
+# on dynamic population estimates for all animals. N in animals
 # is calculated using the original NANI assumption N req - N manure, rather
 # than N in meat.
+
+if(print_tags == 1){
+  print("ModelSubs/NPinputs_aggregate.R")
+}
 
 #allocate space for arrays
 NANIanimreq = array(0,c(n_ws_NEEA,nyrs))

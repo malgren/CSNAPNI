@@ -6,6 +6,10 @@
 #because there's not much difference between 02 and 07 data, but there's no basis for comparison for N2O emissions,
 #so that should probably be checked
 
+if(print_tags == 1){
+  print("CreateInputsSubs/meat_data.R")
+}
+
 #meat production
 import_yrs = c("97","02","07","12","17")  #last two digits of data years to import, only needed for length in this file
 meatprod_old=t(array(scan("RawData/meatprod_old.txt"), c(10,n_meats)))

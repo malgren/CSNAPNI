@@ -2,6 +2,10 @@
 ## This file loads all of the input files for CSNAPNI. 
 ## The input files are created using CreateInputs.R.
 
+if(print_tags == 1){
+  print("ModelSubs/LoadData.R")
+}
+
 n_cnty = 3111 #number of counties (in continental US)
 n_ws_NEEA = 144 #number of NEEA watersheds
 n_ws_tbx = 450 #number of watersheds in NANI Toolbox watershed set

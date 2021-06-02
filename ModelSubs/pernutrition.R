@@ -1,5 +1,9 @@
 ## pernutrition.R
 
+if(print_tags == 1){
+  print("ModelSubs/pernutrition.R")
+}
+
 ## Impact (N, GHG) per nutritional unit
 #allocate space for matrices
 fertNperCkcal = array(0,c(n_crops,nyrs))

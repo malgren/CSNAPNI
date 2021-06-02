@@ -1,6 +1,11 @@
 ## Mprodimpacts.R
 ## MEAT FERT, FIX, NH3, N2O, CH4, LU, and MANURE
 ## impact per meat
+
+if(print_tags == 1){
+  print("ModelSubs/Mprodimpacts.R")
+}
+
 #allocate space for matrices
 animNfromC = array(0,c(n_anims,n_crops,nyrs))
 animPfromC = array(0,c(n_anims,n_crops,nyrs))

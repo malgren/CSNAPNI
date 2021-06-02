@@ -2,6 +2,10 @@
 #calculate meat/animal and crop N and P contents 
 #and quantities of crops for humans and animals
 
+if(print_tags == 1){
+  print("ModelSubs/food_totals.R")
+}
+
 ##Variables for livestock, not adjusted for trade
 kganim = array(0,c(n_ws_NEEA,n_anims,nyrs))        # live weight
 kgmeat_old = array(0,c(n_ws_NEEA,n_anims,nyrs))    # edible weight, calculated using assumptions in NANI, 

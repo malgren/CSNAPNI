@@ -1,4 +1,7 @@
 #initialize constants for CreateInputs.R
+if(print_tags == 1){
+  print("CreateInputsSubs/constants.R")
+}
 
 library(readxl)
 

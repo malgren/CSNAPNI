@@ -1,6 +1,10 @@
 # write_outputs.R
 # this file writes some of the resulting calculations from CSNAPNI to text files
 
+if(print_tags == 1){
+  print("ModelSubs/write_outputs.R")
+}
+
 #OUTPUT MATRICES
 NANIBtot_US = array(0,c(length(NANIBtot[1,,1]),nyrs))
 NANIorigtot_US = array(0,c(length(NANIorigtot[1,,1]),nyrs))

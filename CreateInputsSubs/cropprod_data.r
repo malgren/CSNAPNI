@@ -3,6 +3,10 @@
 #from NANI_NAPI_NASS_pull.r
 #uses "prod_array"
 
+if(print_tags == 1){
+  print("CreateInputsSubs/cropprod_data.R")
+}
+
 cropname=array("",c(n_crops))
 cropname[1] = 'corn for grain'
 cropname[2] = 'corn for silage'

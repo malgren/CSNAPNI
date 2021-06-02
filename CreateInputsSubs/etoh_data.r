@@ -2,6 +2,10 @@
 #This script loads and organizes ethanol production data from the ethanol supply and disappearance file from the
 #USDA ERS U.S. Bioenergy Statistics page: https://www.ers.usda.gov/data-products/us-bioenergy-statistics/fuel 
 
+if(print_tags == 1){
+  print("CreateInputsSubs/etoh_data.R")
+}
+
 etohproddata = t(array(scan("RawData/etohproddata.txt"), c(1,37))) #this file contains data from every year, 1999-2017, in 1000s of gallons, see etohproddata.xls
 import_yrs5=c(1997,2002,2007,2012,2017)
 

@@ -41,7 +41,7 @@ source("ModelSubs/Mprodimpacts.R")
 source("ModelSubs/pernutrition.R")
 
 ## calculates domestic meat availability given trade, also calculates N lost due to food waste SUBROUTINE
-#Temporarily commented-out - *this code has not bee converted to R and updated for additional years yet*
+#Temporarily commented-out - *this code has not been converted to R and updated for additional years yet*
 #meattrade
 
 ## BUILD FINAL NANI/NAPI MATRICES

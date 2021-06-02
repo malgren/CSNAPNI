@@ -2,6 +2,10 @@
 ##uses the average annual populations of 19 animal types to estimate
 ##production quantities of beef, pork, milk, eggs, chicken, and turkey
 
+if(print_tags == 1){
+  print("ModelSubs/meat_alloc.R")
+}
+
 #allocate matrix space
 kgmeatdyn = array(0, c(n_ws_NEEA, n_anims, nyrs))
 kgmeat = array(0, c(n_ws_NEEA, n_meats, nyrs))
