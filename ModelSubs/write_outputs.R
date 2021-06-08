@@ -145,6 +145,14 @@ for(n in 1:nyrs){
   
   write_name = paste("OutputFiles/CB_noanimwsdyn",run_yrs[n],".txt",sep = "")
   write.table(noanimwsdyn[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+
+  #total manure N by county
+  write_name = paste("OutputFiles/kgmanureNcnty",run_yrs[n],".txt",sep = "")
+  write.table(kgmanureN[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  #total manure P by county
+  write_name = paste("OutputFiles/kgmanurePcnty",run_yrs[n],".txt",sep = "")
+  write.table(kgmanureP[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
   #recoverable manure N by county
   write_name = paste("OutputFiles/kgmanureNreccnty",run_yrs[n],".txt",sep = "")
@@ -161,6 +169,14 @@ for(n in 1:nyrs){
   #fertilizer P by county
   write_name = paste("OutputFiles/kgfertPcnty",run_yrs[n],".txt",sep = "")
   write.table(cropprodcnty[,,n]*unitfertPC[,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  # N in crop by county
+  write_name = paste("OutputFiles/kgcropNcnty",run_yrs[n],".txt",sep = "")
+  write.table(cropprodcnty[,,n]*cropdata[,1] * cropdata[,2], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,2] = percent N in each crop (% DM) * (% N in DM)
+  
+  #P in crop by county
+  write_name = paste("OutputFiles/kgcropPcnty",run_yrs[n],".txt",sep = "")
+  write.table(cropprodcnty[,,n]*cropdata[,1] * cropdata[,2], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,2] = percent N in each crop (% DM) * (% N in DM)
 }
 
 write_name = paste("OutputFiles/etohfertNtot.txt",sep = "")

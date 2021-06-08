@@ -2,7 +2,7 @@
 ## This file contains all user-adjustable input parameters for CSNAPNI.
 
 #Print Troubleshooting Tags
-print_tags = 1
+print_tags = 0
 if(print_tags == 1){
   print("Config/Settings.R")
 }
