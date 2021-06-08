@@ -174,10 +174,18 @@ for(n in 1:nyrs){
   write_name = paste("OutputFiles/kgcropNcnty",run_yrs[n],".txt",sep = "")
   write.table(cropprodcnty[,,n]*cropdata[,1] * cropdata[,2], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,2] = percent N in each crop (% DM) * (% N in DM)
   
-  #P in crop by county
+  # P in crop by county
   write_name = paste("OutputFiles/kgcropPcnty",run_yrs[n],".txt",sep = "")
   write.table(cropprodcnty[,,n]*cropdata[,1] * cropdata[,2], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,2] = percent N in each crop (% DM) * (% N in DM)
-}
+
+  # Crop prod by county
+  write_name = paste("OutputFiles/kgcropcnty",run_yrs[n],".txt",sep = "")
+  write.table(cropprodcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+    
+  # Crop area by county
+  write_name = paste("OutputFiles/kgareacnty",run_yrs[n],".txt",sep = "")
+  write.table(cropareacnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  }
 
 write_name = paste("OutputFiles/etohfertNtot.txt",sep = "")
 write.table(t(etohfertNtot), file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
