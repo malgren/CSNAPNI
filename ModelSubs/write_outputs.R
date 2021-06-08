@@ -189,7 +189,6 @@ for(n in 1:nyrs){
   # Crop area by county
   write_name = paste("OutputFiles/cropareacnty",run_yrs[n],".txt",sep = "")
   write.table(cropareacnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
-  
   }
 
 write_name = paste("OutputFiles/etohfertNtot.txt",sep = "")
