@@ -148,11 +148,11 @@ for(n in 1:nyrs){
 
   #total manure N by county
   write_name = paste("OutputFiles/kgmanureNcnty",run_yrs[n],".txt",sep = "")
-  write.table(kgmanureN[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  write.table(kgmanureNcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
   #total manure P by county
   write_name = paste("OutputFiles/kgmanurePcnty",run_yrs[n],".txt",sep = "")
-  write.table(kgmanureP[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  write.table(kgmanurePcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
   #recoverable manure N by county
   write_name = paste("OutputFiles/kgmanureNreccnty",run_yrs[n],".txt",sep = "")
@@ -183,8 +183,8 @@ for(n in 1:nyrs){
   write.table(cropprodcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
     
   # Crop area by county
-  write_name = paste("OutputFiles/kgareacnty",run_yrs[n],".txt",sep = "")
-  write.table(cropareacnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  #write_name = paste("OutputFiles/kgareacnty",run_yrs[n],".txt",sep = "")
+  #write.table(cropareacnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   }
 
 write_name = paste("OutputFiles/etohfertNtot.txt",sep = "")

@@ -86,7 +86,7 @@ source("ModelSubs/NEEAshedsdyn.R")
 
 ### Human N and P requirements {#hmnNP}
 `ModelSubs/hmn_reqs.R` uses data from the [USDA ERS Food Availability Data System](https://www.ers.usda.gov/data-products/food-availability-per-capita-data-system/) and human population data to estimate the availability of food nutrients for people at the NEEA watershed-level.
-  *What's the bit about total animals ws? Why is that in there and not in NEEAshedsdyn?*
+  *Author's note to self: What's the bit about total animals ws? Why is that in there and not in NEEAshedsdyn?*
 ```{r include = TRUE}
 source("ModelSubs/hmn_reqs.R")
 ```

@@ -14,13 +14,17 @@ if(print_tags == 1){
 }
 
 #allocate matrix space
-kgmanureNrec = array(0,c(n_cnty,n_anims,nyrs))         #***2002 data only****
-kgmanureNrec450 = array(0,c(n_ws_tbx,n_anims,nyrs))   #***2002 data only****
-kgmanurePrec = array(0,c(n_cnty,n_anims,nyrs))         #***2002 data only****
-kgmanurePrec450 = array(0,c(n_ws_tbx,n_anims,nyrs))   #***2002 data only****
+kgmanureNrec = array(0,c(n_cnty,n_anims,nyrs))        
+kgmanureNrec450 = array(0,c(n_ws_tbx,n_anims,nyrs))  
+kgmanurePrec = array(0,c(n_cnty,n_anims,nyrs))        
+kgmanurePrec450 = array(0,c(n_ws_tbx,n_anims,nyrs))
+kgmanureNcnty = array(0,c(n_cnty,n_anims,nyrs))  
+kgmanurePcnty = array(0,c(n_cnty,n_anims,nyrs))  
 
 for(n in 1:nyrs){
   for(i in 1:n_cnty){
+    kgmanureNcnty[i,,n] = (noanimdyncty[i,,n] * t(animdatadyn[,10]))
+    kgmanurePcnty[i,,n] = (noanimdyncty[i,,n] * t(animdatadyn[,11]))
     if(FIPS[i] == 1){ # Alabama
       kgmanureNrec[i,,n] = (noanimdyncty[i,,n] * t(animdatadyn[,10])) * manurefactor[1,]
       kgmanurePrec[i,,n] = (noanimdyncty[i,,n] * t(animdatadyn[,11])) * manurefactor[1,]
