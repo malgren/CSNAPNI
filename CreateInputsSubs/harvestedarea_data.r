@@ -32,6 +32,10 @@ for(n in 1:length(import_yrs)){
     }
   }
 cropareaws[,,n]=t(cnty_ws)%*%cropareacty[,,n]
+
+write_name = paste("InputFiles/cropareaharvestedcnty",run_yrs[n],".txt",sep = "")
+write.table(cropareacty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+
 }
 croparea=colSums(cropareaws)
 cornareanoetohsum=colSums(cornareanoetoh)

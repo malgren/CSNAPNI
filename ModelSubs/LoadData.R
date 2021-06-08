@@ -118,6 +118,11 @@ for(n in 1:nyrs){
 #crop-specific harvested area data from the US agricultural census
 #key is in cropareaharvested_key.txt
 croparea = t(array(scan("InputFiles/cropareaharvested.txt"), c(nyrs,n_crops)))
+cropareacnty=array(0,c(n_cnty,n_crops,nyrs))
+for(n in 1:length(run_yrs)){
+  file_name = paste("InputFiles/cropareaharvestedcnty",run_yrs[n],".txt",sep = "")
+  cropareacnty[,,n]=t(array(scan(file_name), c(n_crops,n_cnty)))
+}
 #ethanol's virtual land use in each year
 etoh_landuse = t(array(scan("InputFiles/etoh_landuse_harvestedarea.txt")))
 

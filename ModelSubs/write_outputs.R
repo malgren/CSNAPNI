@@ -166,6 +166,10 @@ for(n in 1:nyrs){
   write_name = paste("OutputFiles/kgfertNcnty",run_yrs[n],".txt",sep = "")
   write.table(cropprodcnty[,,n]*unitfertNC[,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
+  #fixation N by county
+  write_name = paste("OutputFiles/kgfixNcnty",run_yrs[n],".txt",sep = "")
+  write.table(cropprodcnty[,,n]*unitfixNC[,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
   #fertilizer P by county
   write_name = paste("OutputFiles/kgfertPcnty",run_yrs[n],".txt",sep = "")
   write.table(cropprodcnty[,,n]*unitfertPC[,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
@@ -183,8 +187,9 @@ for(n in 1:nyrs){
   write.table(cropprodcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
     
   # Crop area by county
-  #write_name = paste("OutputFiles/kgareacnty",run_yrs[n],".txt",sep = "")
-  #write.table(cropareacnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  write_name = paste("OutputFiles/cropareacnty",run_yrs[n],".txt",sep = "")
+  write.table(cropareacnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
   }
 
 write_name = paste("OutputFiles/etohfertNtot.txt",sep = "")
