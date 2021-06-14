@@ -180,13 +180,13 @@ for(n in 1:nyrs){
   
   # P in crop by county
   write_name = paste("OutputFiles/kgcropPcnty",run_yrs[n],".txt",sep = "")
-  write.table(cropprodcnty[,,n]*cropdata[,1] * cropdata[,2], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,2] = percent N in each crop (% DM) * (% N in DM)
+  write.table(cropprodcnty[,,n]*cropdata[,1] * cropdata[,3], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,3] = percent P in each crop (% DM) * (% P in DM)
 
   # Crop prod by county
   write_name = paste("OutputFiles/kgcropcnty",run_yrs[n],".txt",sep = "")
   write.table(cropprodcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
     
-  # Crop area by county
+  # Crop area by county (km^2)
   write_name = paste("OutputFiles/cropareacnty",run_yrs[n],".txt",sep = "")
   write.table(cropareacnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   }
