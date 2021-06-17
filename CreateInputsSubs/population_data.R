@@ -68,3 +68,13 @@ population_key = array(" ", c(length(populationdensws)+1,length(import_yrs)+1))
 population_key[1,]=c(" ",import_yrs) #column headings
 population_key[,1]=c("ws_num", 1:length(populationdensws)) #row headings
 write.table(population_key, file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+
+# write text files
+write_name = "InputFiles/population_cnty.txt"
+write.table(populationcty, file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+write_name = "InputFileKeys/populationcnty_key.txt"
+populationcty_key = array(" ", c(length(populationcty)+1,length(import_yrs)+1))
+populationcty_key[1,]=c(" ",import_yrs) #column headings
+populationcty_key[,1]=c("cty_index", 1:length(populationcty)) #row headings
+write.table(populationcty_key, file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+

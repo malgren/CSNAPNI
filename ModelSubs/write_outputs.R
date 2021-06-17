@@ -12,6 +12,16 @@ NAPIBtot_US = array(0,c(length(NAPIBtot[1,,1]),nyrs))
 NAPIorigtot_US = array(0,c(length(NAPIorigtot[1,,1]),nyrs))
 NANI_wsspec = array(0,c(length(NANIBtot[1,,1]),nyrs))
 NAPI_wsspec = array(0,c(length(NAPIBtot[1,,1]),nyrs))
+#fertilizer N by county
+kgfertNcnty=array(0,c(n_cnty,n_crops,nyrs))
+#fixation N by county
+kgfixNcnty=array(0,c(n_cnty,n_crops,nyrs))
+#fertilizer P by county
+kgfertPcnty=array(0,c(n_cnty,n_crops,nyrs))
+# N in crop by county
+kgcropNcnty=array(0,c(n_cnty,n_crops,nyrs))
+# P in crop by county
+kgcropPcnty=array(0,c(n_cnty,n_crops,nyrs))
 
 for(n in 1:nyrs){
   NANIBtot_US[,n] = colSums(NANIBtot[,,n])/(10^9)
@@ -102,6 +112,7 @@ PinperkgC=PinputtoC/drop(colSums(CkgwswE))
 PoutperkgC=Pincrop
 CPproplost=(PinperkgC-PoutperkgC)/PinperkgC
 
+
 for(n in 1:nyrs){
   #product and watershed specific outputs
   write_name = paste("OutputFiles/CfertNwswE",run_yrs[n],".txt",sep = "")
@@ -162,25 +173,43 @@ for(n in 1:nyrs){
   write_name = paste("OutputFiles/kgmanurePreccnty",run_yrs[n],".txt",sep = "")
   write.table(kgmanurePrec[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
+  #calculate county-level outputs
+  for(k in 1:n_crops){
+    #fertilizer N by county
+    kgfertNcnty[,k,n]=cropprodcnty[,k,n]*unitfertNC[k,n]
+    
+    #fixation N by county
+    kgfixNcnty[,k,n]=cropprodcnty[,k,n]*unitfixNC[k,n]
+    
+    #fertilizer P by county
+    kgfertPcnty[,k,n]=cropprodcnty[,k,n]*unitfertPC[k,n]
+    
+    # N in crop by county
+    kgcropNcnty[,k,n]=cropprodcnty[,k,n]*cropdata[k,1]*cropdata[k,2] #cropdata[,1] * cropdata[,2] = (% DM) * (% N in DM)
+    
+    # P in crop by county
+    kgcropPcnty[,k,n]=cropprodcnty[,k,n]*cropdata[k,1]*cropdata[k,3] #cropdata[,1] * cropdata[,3] = (% DM) * (% P in DM)
+  }
+  
   #fertilizer N by county
   write_name = paste("OutputFiles/kgfertNcnty",run_yrs[n],".txt",sep = "")
-  write.table(cropprodcnty[,,n]*unitfertNC[,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
-  
+  write.table(kgfertNcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+
   #fixation N by county
   write_name = paste("OutputFiles/kgfixNcnty",run_yrs[n],".txt",sep = "")
-  write.table(cropprodcnty[,,n]*unitfixNC[,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
-  
+  write.table(kgfixNcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+
   #fertilizer P by county
   write_name = paste("OutputFiles/kgfertPcnty",run_yrs[n],".txt",sep = "")
-  write.table(cropprodcnty[,,n]*unitfertPC[,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
-  
+  write.table(kgfertPcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+
   # N in crop by county
   write_name = paste("OutputFiles/kgcropNcnty",run_yrs[n],".txt",sep = "")
-  write.table(cropprodcnty[,,n]*cropdata[,1] * cropdata[,2], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,2] = percent N in each crop (% DM) * (% N in DM)
-  
+  write.table(kgcropNcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,2] = percent N in each crop (% DM) * (% N in DM)
+
   # P in crop by county
   write_name = paste("OutputFiles/kgcropPcnty",run_yrs[n],".txt",sep = "")
-  write.table(cropprodcnty[,,n]*cropdata[,1] * cropdata[,3], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,3] = percent P in each crop (% DM) * (% P in DM)
+  write.table(kgcropPcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE) #cropdata[,1] * cropdata[,3] = percent P in each crop (% DM) * (% P in DM)
 
   # Crop prod by county
   write_name = paste("OutputFiles/kgcropcnty",run_yrs[n],".txt",sep = "")
