@@ -12,16 +12,15 @@ NAPIBtot_US = array(0,c(length(NAPIBtot[1,,1]),nyrs))
 NAPIorigtot_US = array(0,c(length(NAPIorigtot[1,,1]),nyrs))
 NANI_wsspec = array(0,c(length(NANIBtot[1,,1]),nyrs))
 NAPI_wsspec = array(0,c(length(NAPIBtot[1,,1]),nyrs))
-#fertilizer N by county
-kgfertNcnty=array(0,c(n_cnty,n_crops,nyrs))
-#fixation N by county
-kgfixNcnty=array(0,c(n_cnty,n_crops,nyrs))
-#fertilizer P by county
-kgfertPcnty=array(0,c(n_cnty,n_crops,nyrs))
-# N in crop by county
-kgcropNcnty=array(0,c(n_cnty,n_crops,nyrs))
-# P in crop by county
-kgcropPcnty=array(0,c(n_cnty,n_crops,nyrs))
+kgfertNcnty=array(0,c(n_cnty,n_crops,nyrs))#fertilizer N by county
+kgfixNcnty=array(0,c(n_cnty,n_crops,nyrs))#fixation N by county
+kgfertPcnty=array(0,c(n_cnty,n_crops,nyrs))#fertilizer P by county
+kgcropNcnty=array(0,c(n_cnty,n_crops,nyrs))# N in crop by county
+kgcropPcnty=array(0,c(n_cnty,n_crops,nyrs))# P in crop by county
+kgmeatNcnty = array(0,c(n_cnty,n_meats,nyrs))#animal N in meat by county
+kgmeatPcnty = array(0,c(n_cnty,n_meats,nyrs))#animal P in meat by county
+kganimNintakecnty = array(0,c(n_cnty,n_anims,nyrs)) #animal N intake by county
+kganimPintakecnty = array(0,c(n_cnty,n_anims,nyrs)) #animal P intake by county
 
 for(n in 1:nyrs){
   NANIBtot_US[,n] = colSums(NANIBtot[,,n])/(10^9)
@@ -50,12 +49,6 @@ if (length(ws)>1){
   total_commoddisag_fertP_ws = array(c(t(CfertPwswE[ws,,]), t(etohfertPws[ws,])),c(nyrs,(n_crops+1)))/(10^9) #total disaggregated fert P inputs (10^9 kg P)
   total_commoddisag_fixN_ws = CfixNwswE[ws,,]/10^9 #total commodity disaggregated fixation N inputs in billion kg N
 }
-
-#total nutrition produced for people
-#totMprot
-#totMkcal
-#totCprot
-#totCkcal
 
 write_name = paste("OutputFiles/total_commoddisag_fertN.txt",sep = "")
 write.table(t(total_commoddisag_fertN), file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
@@ -157,6 +150,69 @@ for(n in 1:nyrs){
   write_name = paste("OutputFiles/CB_noanimwsdyn",run_yrs[n],".txt",sep = "")
   write.table(noanimwsdyn[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
 
+  #human N intake by county
+  write_name = paste("OutputFiles/kghumanNintakecnty",run_yrs[n],".txt",sep = "")
+  write.table(population_cnty[,n]*Nperhmn[n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  #human P intake by county
+  write_name = paste("OutputFiles/kghumanPintakecnty",run_yrs[n],".txt",sep = "")
+  write.table(population_cnty[,n]*foodPperhmn[n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  #human detergent P use by county
+  write_name = paste("OutputFiles/kghumanPintakecnty",run_yrs[n],".txt",sep = "")
+  write.table(population_cnty[,n]*detPperhmn[n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  #calculate animal county-level outputs
+  for(m in 1:n_meats){
+    #meat to anim key
+    if(m==1){
+      a=1
+    }else if(m==2){
+      a=2
+    }else if(m==3){
+      a=4
+    }else if(m==6){
+      a=5
+    }else if(m==7){
+      a=8
+    }else if(m==8){
+      a=9
+    }else if(m==4){
+      a=17
+    }else if(m==5){
+      a=18
+    }else if(m==9){
+      a=19
+    }
+    #animal N in meat by county
+    kgmeatNcnty[,m,n] = (noanimdyncty[, m, n] / totnoanimws[n, m]) * meatN[m, n]
+    
+    #animal P in meat by county
+    kgmeatPcnty[,m,n] = (noanimdyncty[, m, n] / totnoanimws[n, m]) * meatP[m, n]
+  }
+  for(a in 1:n_anims){
+    #animal N intake by county
+    kganimNintakecnty[,a,n]=noanimdyncty[,a,n]*animdatadyn[a,8]
+    
+    #animal P intake by county
+    kganimPintakecnty[,a,n]=noanimdyncty[,a,n]*animdatadyn[a,9]
+  }
+  #animal N in meat by county
+  write_name = paste("OutputFiles/kgmeatNcnty",run_yrs[n],".txt",sep = "")
+  write.table(kgmeatNcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  #animal P in meat by county
+  write_name = paste("OutputFiles/kgmeatPcnty",run_yrs[n],".txt",sep = "")
+  write.table(kgmeatPcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  #animal N intake by county
+  write_name = paste("OutputFiles/kganimNintakecnty",run_yrs[n],".txt",sep = "")
+  write.table(kganimNintakecnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
+  #animal P intake by county
+  write_name = paste("OutputFiles/kganimPintakecnty",run_yrs[n],".txt",sep = "")
+  write.table(kganimPintakecnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+  
   #total manure N by county
   write_name = paste("OutputFiles/kgmanureNcnty",run_yrs[n],".txt",sep = "")
   write.table(kgmanureNcnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
@@ -173,7 +229,7 @@ for(n in 1:nyrs){
   write_name = paste("OutputFiles/kgmanurePreccnty",run_yrs[n],".txt",sep = "")
   write.table(kgmanurePrec[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
-  #calculate county-level outputs
+  #calculate crop county-level outputs
   for(k in 1:n_crops){
     #fertilizer N by county
     kgfertNcnty[,k,n]=cropprodcnty[,k,n]*unitfertNC[k,n]

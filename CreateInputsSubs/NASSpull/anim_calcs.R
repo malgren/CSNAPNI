@@ -185,7 +185,7 @@ dim = dim(hogs_for_slaughter_inv)
 hogs_for_slaughter = array(0,c(dim[1],dim[2]))
 for(i in 1:dim[1]){
   for(j in 1:dim[2]){
-    if(hogs_for_slaughter_inv[i,j]==0){
+    if(hogs_for_slaughter_inv[i,j]<=0){
       hogs_for_slaughter[i,j] = hogs_for_slaughter_sales[i,j]/hogs_for_slaughter_cycles
     }else if(hogs_for_slaughter_sales[i,j]==0){
       hogs_for_slaughter[i,j] = hogs_for_slaughter_inv[i,j]/hogs_for_slaughter_cycles*(hogs_for_slaughter_cycles-1)/(hogs_for_slaughter_cycles)

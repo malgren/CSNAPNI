@@ -27,6 +27,7 @@ cornuse = t(array(scan("InputFiles/cornuse.txt"), c(nyrs,11)))
 #human population densities (people/km2) in watersheds (450 set)
 #key is in population_key.txt
 population = t(array(scan("InputFiles/population.txt"), c(nyrs,n_ws_tbx)))
+population_cnty = t(array(scan("InputFiles/population_cnty.txt"), c(nyrs,n_cnty)))
 
 #CROP PRODUCTION
 #crop production densities (kg/km2) in watersheds (450 set)
