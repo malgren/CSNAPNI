@@ -18,13 +18,13 @@ prot_per_hmn_per_day = c(121,123,123,120,120) #grams of protein available per pe
 #no data post-2010
 
 #annual human N consumption (kg)
-N_per_prot = 0.16  #(Han and Allen 2008)
+N_per_prot = 0.16  #(Han and Allen 2008) N consumption
 Nperhmn=prot_per_hmn_per_day*N_per_prot*365/1000 #(in kg/person/year)
 
 #annual human P consumption (kg)
 P_per_prot = 0.013 #https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4361095/#:~:text=The%20direct%20relationship%20between%20protein,protein%20%5B4%2C%205%5D.
 foodPperhmn=prot_per_hmn_per_day*P_per_prot*365/1000 #(in kg/person/year)
-detPperhmn=c(0.62,0.62,0.62,0.43,0.43)
+detPperhmn=c(0.62,0.62,0.62,0.43,0.43) #(in kg/person/year)
 
 for(i in 1:nyrs){
   totnoanimws[i,] = colSums(noanimwsdyn[,,i]) #total number of each type of animal?
