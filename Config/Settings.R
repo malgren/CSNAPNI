@@ -25,9 +25,10 @@ if(protassump==1){
   print(paste("Using DeVries' protein assumptions for meat."),quote=FALSE)
 }
 
-#animal P intake (if this is changed, get_new_data should be set to 1 for at least one run)
+#animal P intake
 #animdatadyn = t(array(scan("InputFiles/animdatadyn_min.txt"), c(23,19))) #minimum P intakes
 animdatadyn = t(array(scan("InputFiles/animdatadyn_max.txt"), c(23,19))) #maximum P intakes
+#animdatadyn = t(array(scan("InputFiles/animdatadyn_Pdigest.txt"), c(23,19))) #digestibility-reduced P intakes and P excreted for swine and poultry
 
 #data years to load
 run_yrs = c("97","02","07","12","17") #last two digits of data years to import
