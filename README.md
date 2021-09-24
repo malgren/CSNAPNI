@@ -10,4 +10,4 @@ Run CSNAPNIv1.R to generate all output files quickly, and to enable model variab
 
 Knit CSNAPNIv1.Rmd to generate the HTML model guide that will walk you through model functionality, inputs, and outputs.
 
-Some output matrices will be saved in the “OutputFiles” folder after the model is run.
+Select output matrices will are exported to text files and saved in the “OutputFiles” folder during a model run.
