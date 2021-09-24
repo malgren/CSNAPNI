@@ -1,7 +1,7 @@
 ---
 title: "Commodity-Specific Net Anthropogenic Phosphorus and Nitrogen Inputs (CSNAPNI)"
 author: "Mikaela Algren"
-date: "Last updated: 1/6/2021"
+date: "Last updated: 9/24/2021"
 output: html_document
 ---
 
@@ -20,7 +20,7 @@ The model is a combination of the [Net Anthropogenic Nitrogen Inputs (NANI) and 
 
 The model includes crop and animal production data for 3111 counties (or statistical equivalents) in the conterminous United States. Datasets correspond to agricultural census years 1997-2017.
 
-## Model Tutorial (add TOC and internal links to headings)
+## Model Tutorial
 
 * [Settings](#settings)
 * [Create Inputs](#createinputs)
@@ -86,7 +86,6 @@ source("ModelSubs/NEEAshedsdyn.R")
 
 ### Human N and P requirements {#hmnNP}
 `ModelSubs/hmn_reqs.R` uses data from the [USDA ERS Food Availability Data System](https://www.ers.usda.gov/data-products/food-availability-per-capita-data-system/) and human population data to estimate the availability of food nutrients for people at the NEEA watershed-level.
-  *Author's note to self: What's the bit about total animals ws? Why is that in there and not in NEEAshedsdyn?*
 ```{r include = TRUE}
 source("ModelSubs/hmn_reqs.R")
 ```
@@ -136,12 +135,24 @@ source("ModelSubs/NPinputs_aggregate.R")
 ```
 
 ### Write model outputs {#writeoutputs}
-`ModelSubs/write_outputs.R` writes text files for 
+`ModelSubs/write_outputs.R` writes text files for
+
+* total NANI and NAPI
+  * for the contiguous US
+  * for a watershed or set of watersheds specified by the user
 * total fertilizer N and P and fixation N inputs
-  * by commodity (crop, ethanol, and meat products)
+  * by commodity (crop, ethanol, and animal products)
   * by watershed
-* manure N and P production by meat type
+* manure N and P production by animal type
 * atmospheric N dep by watershed
+* county-level
+  * human/animal N/P intake
+  * crop fertilizer N/P and fixation N inputs
+  * detergent P use
+  * N/P in animal products
+  * N/P in manure
+  * crop production (kg and km2)
+  * N/P in crops
 
 ```{r include = TRUE}
 ## WRITE OUTPUT DATA TO TEXT FILES
