@@ -126,30 +126,30 @@ for(n in 1:nyrs){
   write_name = paste("OutputFiles/fixNmeattot",run_yrs[n],".txt",sep = "")
   write.table(fixNmeattot[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
-  write_name = paste("OutputFiles/CBmanureNmeat",run_yrs[n],".txt",sep = "")
+  write_name = paste("OutputFiles/ws_spec_manureNmeat",run_yrs[n],".txt",sep = "")
   write.table(manureNmeat[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
-  write_name = paste("OutputFiles/CBmanurePmeat",run_yrs[n],".txt",sep = "")
+  write_name = paste("OutputFiles/ws_spec_manurePmeat",run_yrs[n],".txt",sep = "")
   write.table(manurePmeat[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
   write_name = paste("OutputFiles/atmNdep",run_yrs[n],".txt",sep = "")
   write.table(totNANIws[,1,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
-  write_name = paste("OutputFiles/CB_NANIBtot",run_yrs[n],".txt",sep = "")
+  write_name = paste("OutputFiles/ws_spec_NANIBtot",run_yrs[n],".txt",sep = "")
   write.table(NANIBtot[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
-  write_name = paste("OutputFiles/CB_NAPIBtot",run_yrs[n],".txt",sep = "")
+  write_name = paste("OutputFiles/ws_spec_NAPIBtot",run_yrs[n],".txt",sep = "")
   write.table(NAPIBtot[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
-  write_name = paste("OutputFiles/CB_ws_spec_animNreqmeat",run_yrs[n],".txt",sep = "")
+  write_name = paste("OutputFiles/ws_spec_animNreqmeat",run_yrs[n],".txt",sep = "")
   write.table(animNreqpermeat[,n]*kgmeat[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
-  write_name = paste("OutputFiles/CB_ws_spec_animPreqmeat",run_yrs[n],".txt",sep = "")
+  write_name = paste("OutputFiles/ws_spec_animPreqmeat",run_yrs[n],".txt",sep = "")
   write.table(animPreqpermeat[,n]*kgmeat[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
   
-  write_name = paste("OutputFiles/CB_noanimwsdyn",run_yrs[n],".txt",sep = "")
+  write_name = paste("OutputFiles/ws_spec_noanimwsdyn",run_yrs[n],".txt",sep = "")
   write.table(noanimwsdyn[ws,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
-
+  
   #human N intake by county
   write_name = paste("OutputFiles/kghumanNintakecnty",run_yrs[n],".txt",sep = "")
   write.table(population_cnty[,n]*Nperhmn[n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
@@ -274,7 +274,14 @@ for(n in 1:nyrs){
   # Crop area by county (km^2)
   write_name = paste("OutputFiles/cropareacnty",run_yrs[n],".txt",sep = "")
   write.table(cropareacnty[,,n], file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
-  }
+}
+
+#write US total NANI and NAPI to file
+write_name = paste("OutputFiles/US_NANIBtot.txt",sep = "")
+write.table(NANIBtot_US, file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
+
+write_name = paste("OutputFiles/US_NAPIBtot.txt",sep = "")
+write.table(NAPIBtot_US, file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)
 
 write_name = paste("OutputFiles/etohfertNtot.txt",sep = "")
 write.table(t(etohfertNtot), file = write_name, sep = " ", row.names = FALSE, col.names = FALSE)

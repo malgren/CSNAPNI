@@ -112,8 +112,8 @@ for(n in 1:nyrs){
   NANIBtot[,2,n] = rowSums(CfixNwswE[,,n])    # N fix
   NANIBtot[,3,n] = sum_commod_spec_fertN[,n]  # ag fertilizer
   NANIBtot[,4,n] = FFtotN[,n]                 # food/feed
-  NANIBtot[,5,n] = totNANIws[,4,n]            # domestic fertilizer
-  NANIBtot[,6,n] = totNANIws[,13,n]           # nonfood fertilizer
+  NANIBtot[,5,n] = totNANIws[,4,n]            # non-ag fertilizer
+  NANIBtot[,6,n] = totNANIws[,13,n]           # nonfood ag fertilizer
   NANIBtotsum[,n] = rowSums(NANIBtot[,,n])
   NANIBperkm[,n] = NANIBtotsum[,n] / areaws
   
