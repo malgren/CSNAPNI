@@ -1,5 +1,5 @@
 #meat_data.r
-#This script takes the meat production and emissions data from the 2015 MATLAB NANI files and adapts it for 1987-2012.
+#This script takes the meat production and emissions data from the 2015 MATLAB NANI files and adapts it for 1997-2017.
 #Meat production: This uses the first two columns of meatprod_old.txt to get meat/animal values for 2002 and 2007
 #These values are averaged and then used with animal populations to calculate meat production for all the other years
 #Meat emissions: This is just cols 3-10 of meatprod_old.txt. Using the same values for every year
