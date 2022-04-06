@@ -2,7 +2,7 @@
 The Commodity-Specific Net Anthropogenic Phosphorus and Nitrogen Inputs (CSNAPNI) model is designed to estimate real and embodied N and P nutrient inputs 
 to specific products, including crops, corn ethanol, and animal products, in addition to total nutrient inputs at the county and watershed scale for the conterminous United States (US).
 
-To run the model, download the repository, and unzip it.
+To run the model, download the repository and unzip it.
 
 Open CSNAPNIv1.R or CSNAPNIv1.Rmd in R Studio.
 
